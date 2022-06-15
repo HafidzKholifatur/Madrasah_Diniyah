@@ -1,0 +1,21 @@
+--Mengambil Repositori baru--
+
+git init
+git remote add origin + link
+git pull
+git pull + link
+
+----------------------------------------------------
+
+--Mengambil Repositori yang sudah terhubung--
+
+git pull
+
+----------------------------------------------------
+
+--Push Repositori local ke git--
+
+git init (jika sudah tidak usah)
+git add . 
+git commit -m "message"
+git push origin master
