@@ -75,7 +75,7 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'pengajar/tabel_pengajar' ?>">Tabel Pengajar</a>
+                                    <a href="<?php echo base_url().'pengajar/table_pengajar' ?>">Tabel Pengajar</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>">Tambah Data Pengajar</a>
