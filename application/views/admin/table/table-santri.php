@@ -23,7 +23,7 @@
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
                                 <thead>
-                                    <tr>
+                                    <tr> 
                                         <th>No</th>
                                         <th>Nama Santri/Santriwati</th>
                                         <th>Jenis Kelamin</th>

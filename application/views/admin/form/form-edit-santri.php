@@ -20,7 +20,7 @@
                 <section id="basic-vertical-layouts">
                     <div class="row match-height">
                         <div class="col-md-12 col-12">
-                            <div class="card">
+                            <div class="card"> 
                                 <div class="card-header">
                                     <h4 class="card-title">Edit Data Santri/Santriwati Pengajian</h4>
                                 </div>
@@ -28,7 +28,7 @@
                                 <div class="card-content">
                                     <div class="card-body">
                                     <?php foreach($santri as $s) { ?>
-                                        <form class="form form-vertical" action="<?php echo base_url().'santri/santri_update' ?>" method="post">
+                                        <form class="form form-vertical" action="<?php echo base_url().'santri/aksi_edit_santri' ?>" method="post">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-12">
