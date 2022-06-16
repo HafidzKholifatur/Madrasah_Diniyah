@@ -24,14 +24,25 @@
                         <!-- <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a> -->
                     </div>
                     <h1 class="auth-title">Log in</h1>
-                    <p class="auth-subtitle mb-5">Login untuk masuk kedalam dashboard admin.</p>
-
-                    <form action="<?php echo base_url().'admin' ?>" method="post">
+                    <p class="auth-subtitle mb-5">Login untuk masuk kedalam dashboard admin</p>
+                    <?php
+        if(isset($_GET['pesan'])){
+             if($_GET['pesan'] == "gagal"){
+                echo"<div class='alert alert-danger'>Login gagal! Username dan password salah</div>";
+             }else if($_GET['pesan'] == "logout"){
+                echo"<div class='alert alert-danger'>Anda telah logout</div>";
+             }else if($_GET['pesan'] == "belumlogin"){
+                echo"<div class='alert alert-success'>Silahkan login dulu</div>";
+            }
+        }
+        ?>
+                    <form action="<?php echo base_url().'welcome/login' ?>" method="post">
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" name="username" class="form-control form-control-xl"
                                 placeholder="Masukan Username">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
+                                <?php echo form_error('username'); ?>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
@@ -39,6 +50,7 @@
                                 placeholder="Masukan Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
+                                <?php echo form_error('password'); ?>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
