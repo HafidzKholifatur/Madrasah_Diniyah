@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2022 pada 07.53
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.28
+-- Generation Time: Jun 16, 2022 at 11:23 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,30 +37,18 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `anak`
---
-
-CREATE TABLE `anak` (
-  `anak_id` int(11) NOT NULL,
-  `anak_nama` varchar(50) NOT NULL,
-  `anak_jk` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `mapel`
+-- Table structure for table `mapel`
 --
 
 CREATE TABLE `mapel` (
   `mapel_id` int(11) NOT NULL,
-  `mapel_nama` int(50) NOT NULL
+  `mapel_nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengajar`
+-- Table structure for table `pengajar`
 --
 
 CREATE TABLE `pengajar` (
@@ -72,14 +60,26 @@ CREATE TABLE `pengajar` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penilaian`
+-- Table structure for table `penilaian`
 --
 
 CREATE TABLE `penilaian` (
   `penilaian_id` int(11) NOT NULL,
-  `anak_id` int(11) NOT NULL,
+  `santri_id` int(11) NOT NULL,
   `mapel_id` int(11) NOT NULL,
   `nilai` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `santri`
+--
+
+CREATE TABLE `santri` (
+  `santri_id` int(11) NOT NULL,
+  `santri_nama` varchar(50) NOT NULL,
+  `santri_jk` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -87,80 +87,80 @@ CREATE TABLE `penilaian` (
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indeks untuk tabel `anak`
---
-ALTER TABLE `anak`
-  ADD PRIMARY KEY (`anak_id`);
-
---
--- Indeks untuk tabel `mapel`
+-- Indexes for table `mapel`
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`mapel_id`);
 
 --
--- Indeks untuk tabel `pengajar`
+-- Indexes for table `pengajar`
 --
 ALTER TABLE `pengajar`
   ADD PRIMARY KEY (`pengajar_id`);
 
 --
--- Indeks untuk tabel `penilaian`
+-- Indexes for table `penilaian`
 --
 ALTER TABLE `penilaian`
   ADD PRIMARY KEY (`penilaian_id`),
-  ADD KEY `anak_id` (`anak_id`,`mapel_id`),
-  ADD KEY `mapel_id` (`mapel_id`);
+  ADD KEY `mapel_id` (`mapel_id`),
+  ADD KEY `santri_id` (`santri_id`) USING BTREE;
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- Indexes for table `santri`
+--
+ALTER TABLE `santri`
+  ADD PRIMARY KEY (`santri_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `anak`
---
-ALTER TABLE `anak`
-  MODIFY `anak_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `mapel`
+-- AUTO_INCREMENT for table `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `pengajar`
+-- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
   MODIFY `pengajar_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `penilaian`
+-- AUTO_INCREMENT for table `penilaian`
 --
 ALTER TABLE `penilaian`
   MODIFY `penilaian_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for table `santri`
+--
+ALTER TABLE `santri`
+  MODIFY `santri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `penilaian`
+-- Constraints for table `penilaian`
 --
 ALTER TABLE `penilaian`
-  ADD CONSTRAINT `penilaian_ibfk_1` FOREIGN KEY (`anak_id`) REFERENCES `anak` (`anak_id`),
+  ADD CONSTRAINT `penilaian_ibfk_1` FOREIGN KEY (`santri_id`) REFERENCES `santri` (`santri_id`),
   ADD CONSTRAINT `penilaian_ibfk_2` FOREIGN KEY (`mapel_id`) REFERENCES `mapel` (`mapel_id`);
 COMMIT;
 

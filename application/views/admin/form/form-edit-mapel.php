@@ -2,14 +2,14 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Form Tambah Data Mata Pelajaran</h3>
-                            <p class="text-subtitle text-muted">Form yang bertujuan untuk menambahkan data mata pelajaran</p>
+                            <h3>Form Edit Data Mata Pelajaran</h3>
+                            <p class="text-subtitle text-muted">Form yang bertujuan untuk mengubah data mata pelajaran</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Form Tambah Data Mata Pelajaran
+                                    <li class="breadcrumb-item active" aria-current="page">Form Edit Data Mata Pelajaran
                                     </li>
                                 </ol>
                             </nav>
@@ -22,25 +22,25 @@
                         <div class="col-md-12 col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Tambah Data Mata Pelajaran</h4>
+                                    <h4 class="card-title">Tambah Edit Mata Pelajaran</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form form-vertical" action="<?php echo base_url().'mapel/aksi_tambah_mapel' ?>" method="post">
+                                    <?php foreach($mapel as $m) { ?>
+                                        <form class="form form-vertical" action="<?php echo base_url().'mapel/aksi_edit_mapel' ?>" method="post">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group has-icon-left">
-                                                            <label for="first-name-icon">Nama Mata Pelajaran</label>
+                                                        <label for="first-name-icon">Nama Mata Pelajaran</label>
                                                             <div class="position-relative">
+                                                                <input type="hidden" name="id" value="<?php echo $m->mapel_id ?>">
                                                                 <input type="text" name="mapel" class="form-control"
-                                                                    placeholder="Masukan Nama Mata Pelajaran"
-                                                                    id="first-name-icon">
+                                                                    id="first-name-icon" value="<?php echo $m->mapel_nama ?>">
                                                                 <div class="form-control-icon">
                                                                     <i class="bi bi-book"></i>
                                                                 </div>
                                                             </div>
-                                                            <?php echo form_error('mapel'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 d-flex justify-content-end">
@@ -52,6 +52,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

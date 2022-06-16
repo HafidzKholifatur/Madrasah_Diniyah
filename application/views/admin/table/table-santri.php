@@ -31,84 +31,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 1; foreach($santri as $s) { ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>vehicula aliquet</td>
-                                        <td>Laki-laki</td>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $s->santri_nama ?></td>
+                                        <td><?php echo $s->santri_jk ?></td>
                                         <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
+                                            <a href="<?php echo base_url().'santri/santri_edit/'.$s->santri_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit
                                             </a>
-                                            <a href="" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'santri/santri_hapus/'.$s->santri_id; ?>" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-trash"></span> Hapus
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>fringilla euismod enim</td>
-                                        <td>Laki-laki</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>mi Duis</td>
-                                        <td>Laki-laki</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>velit</td>
-                                        <td>Perempuan</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>rhoncus id</td>
-                                        <td>Perempuan</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>diam Sed diam</td>
-                                        <td>Perempuan</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

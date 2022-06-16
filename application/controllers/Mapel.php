@@ -22,36 +22,10 @@ class Mapel extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    function tabel_santri(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
-        $this->load->view('admin/table/table-santri');
-        $this->load->view('admin/footer');
-    }
-
-    function tambah_santri(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-santri');
-        $this->load->view('admin/footer');
-    }
-
-    function tabel_pengajar(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
-        $this->load->view('admin/table/table-pengajar');
-        $this->load->view('admin/footer');
-    }
-
-    function tambah_pengajar(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-pengajar');
-        $this->load->view('admin/footer');
-    }
-
     function tabel_mapel(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
+        $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
         $this->load->view('admin/header');
-        $this->load->view('admin/table/table-mapel');
+        $this->load->view('admin/table/table-mapel',$data);
         $this->load->view('admin/footer');
     }
 
@@ -61,88 +35,63 @@ class Mapel extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    function kontak(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-pengajar');
-        $this->load->view('admin/footer');
-    }
-
-    function mobil_add_act(){
-        $merk = $this->input->post('merk');
-        $plat = $this->input->post('plat');
-        $warna = $this->input->post('warna');
-        $tahun = $this->input->post('tahun');
-        $status = $this->input->post('status');
-        $this->form_validation->set_rules('merk', 'Merk Mobil', 'required');
-        $this->form_validation->set_rules('status', 'Status Mobil', 'required');
+    function aksi_tambah_mapel(){
+        $mapel = $this->input->post('mapel');
+        $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
 
         if($this->form_validation->run() != false){
             $data = array(
-                'mobil_merk' => $merk,
-                'mobil_plat' => $plat,
-                'mobil_warna' => $warna,
-                'mobil_tahun' => $tahun,
-                'mobil_status' => $status
+                'mapel_nama' => $mapel
             );
-            $this->m_rental->insert_data($data, 'mobil');
-            redirect(base_url().'admin/mobil');
+            $this->m_madrasah->insert_data($data, 'mapel');
+            redirect(base_url().'mapel/tabel_mapel');
         }else{
             $this->load->view('admin/header');
-            $this->load->view('admin/mobil_add');
+            $this->load->view('admin/form/form-tambah-mapel');
             $this->load->view('admin/footer');
         }
     }
 
-    function mobil_edit($id){
+    function mapel_edit($id){
         $where = array(
-            'mobil_id' => $id
+            'mapel_id' => $id
         );
-        $data['mobil'] = $this->m_rental->edit_data($where,'mobil')->result();
+        $data['mapel'] = $this->m_madrasah->edit_data($where, 'mapel')->result();
         $this->load->view('admin/header');
-        $this->load->view('admin/mobil_edit', $data);
+        $this->load->view('admin/form/form-edit-mapel', $data);
         $this->load->view('admin/footer');
     }
 
-    function mobil_update(){
+    function aksi_edit_mapel(){
         $id = $this->input->post('id');
-        $merk = $this->input->post('merk');
-        $plat = $this->input->post('plat');
-        $warna = $this->input->post('warna');
-        $tahun = $this->input->post('tahun');
-        $status = $this->input->post('status');
-        $this->form_validation->set_rules('merk', 'Merk Mobil', 'required');
-        $this->form_validation->set_rules('status', 'Status Mobil', 'required');
-
+        $mapel = $this->input->post('mapel');
+        $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
         if($this->form_validation->run() != false){
             $where = array(
-                'mobil_id' => $id
+                'mapel_id' => $id
             );
             $data = array(
-                'mobil_merk' => $merk,
-                'mobil_plat' => $plat,
-                'mobil_warna' => $warna,
-                'mobil_tahun' => $tahun,
-                'mobil_status' => $status
+                'mapel_nama' => $mapel
             );
-            $this->m_rental->update_data($where, $data, 'mobil');
-            redirect(base_url().'admin/mobil');
+            $this->m_madrasah->update_data($where, $data, 'mapel');
+            redirect(base_url().'mapel/tabel_mapel');
         }else{
             $where = array(
-                'mobil_id' => $id
+                'mapel_id' => $id
             );
-            $data['mobil'] = $this->m_rental->edit_data($where, 'mobil')->result();
+            $data['mapel'] = $this->m_madrasah->edit_data($where, 'mapel')->result();
             $this->load->view('admin/header');
-            $this->load->view('admin/mobil_edit', $data);
+            $this->load->view('admin/form/form-edit-mapel', $data);
             $this->load->view('admin/footer');
         }
     }
 
-    function mobil_hapus($id){
+    function mapel_hapus($id){
         $where = array(
-            'mobil_id' => $id
+            'mapel_id' => $id
         );
-        $this->m_rental->delete_data($where, 'mobil');
-        redirect(base_url().'admin/mobil'); 
+        $this->m_madrasah->delete_data($where, 'mapel');
+        redirect(base_url().'mapel/tabel_mapel'); 
     }
 
     function logout(){

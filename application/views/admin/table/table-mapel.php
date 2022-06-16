@@ -30,78 +30,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 1; foreach($mapel as $m) { ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>vehicula aliquet</td>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $m->mapel_nama ?></td>
                                         <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
+                                            <a href="<?php echo base_url().'mapel/mapel_edit/'.$m->mapel_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit
                                             </a>
-                                            <a href="" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'mapel/mapel_hapus/'.$m->mapel_id; ?>" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-trash"></span> Hapus
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>fringilla euismod enim</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>mi Duis</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>velit</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>rhoncus id</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>diam Sed diam</td>
-                                        <td class="text-center">
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
