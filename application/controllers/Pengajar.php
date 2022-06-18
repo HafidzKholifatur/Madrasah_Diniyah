@@ -7,9 +7,9 @@ class Pengajar extends CI_Controller{
     {
         parent::__construct();
         // mengecek login
-        // if($this->session->userdata('status') != "login"){
-        //     redirect(base_url().'welcome?pesan=belumlogin');
-        // }
+        if($this->session->userdata('status') != "login"){
+            redirect(base_url().'welcome?pesan=belumlogin');
+        }
     }
 
     function table_pengajar(){

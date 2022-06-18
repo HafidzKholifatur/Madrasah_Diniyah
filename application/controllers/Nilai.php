@@ -7,9 +7,9 @@ class Nilai extends CI_Controller{
     {
         parent::__construct();
         // mengecek login
-        // if($this->session->userdata('status') != "login"){
-        //     redirect(base_url().'welcome?pesan=belumlogin');
-        // }
+        if($this->session->userdata('status') != "login"){
+            redirect(base_url().'welcome?pesan=belumlogin');
+        }
     }
 
     function tabel_nilai(){
@@ -34,25 +34,30 @@ class Nilai extends CI_Controller{
         $mapel_id = $this->input->post('mapel_id[]');
         $nilai = $this->input->post('nilai[]');
 
-        foreach($mapel_id as $map){
-            $map;
-        }
-        foreach($nilai as $nil){
-            $nil;
-        }
+        var_dump($mapel_id);
+        echo "<br>";
+        var_dump($nilai);
+        echo "<br>";
+
+        // foreach($mapel_id as $map){
+        //     $map;
+        // }
+        // foreach($nilai as $nil){
+        //     $nil;
+        // }
 
         // CARI CARA GIMANA $DATA MASUKIN SEMUA DATA, BUKAN CUMA 1
 
         // var_dump($nilai);
         $data = array(
             'santri_id' => $santri,
-            'mapel_id' => $map,
-            'nilai' => $nil
+            'mapel_id' => $mapel_id,
+            'nilai' => $nilai
         );
 
         foreach($data as $dat){
             var_dump($dat);
-            // $this->m_madrasah->insert_data($dat, 'penilaian');
+            $this->m_madrasah->insert_data($dat, 'penilaian');
         }
         // $this->m_madrasah->insert_data($dat, 'penilaian');
         // redirect(base_url().'nilai/tabel_nilai');

@@ -43,82 +43,19 @@ class Admin extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    function mobil_add_act(){
-        $merk = $this->input->post('merk');
-        $plat = $this->input->post('plat');
-        $warna = $this->input->post('warna');
-        $tahun = $this->input->post('tahun');
-        $status = $this->input->post('status');
-        $this->form_validation->set_rules('merk', 'Merk Mobil', 'required');
-        $this->form_validation->set_rules('status', 'Status Mobil', 'required');
-
-        if($this->form_validation->run() != false){
-            $data = array(
-                'mobil_merk' => $merk,
-                'mobil_plat' => $plat,
-                'mobil_warna' => $warna,
-                'mobil_tahun' => $tahun,
-                'mobil_status' => $status
-            );
-            $this->m_rental->insert_data($data, 'mobil');
-            redirect(base_url().'admin/mobil');
-        }else{
-            $this->load->view('admin/header');
-            $this->load->view('admin/mobil_add');
-            $this->load->view('admin/footer');
-        }
-    }
-
-    function mobil_edit($id){
+    function ganti_password(){
         $where = array(
-            'mobil_id' => $id
+            // 'santri_id' => $id
         );
-        $data['mobil'] = $this->m_rental->edit_data($where,'mobil')->result();
-        $this->load->view('admin/header');
-        $this->load->view('admin/mobil_edit', $data);
+
+        // LINK TUTORIAL GANTI PASSWORD
+        // https://www.youtube.com/watch?v=zwazZNZRKxQ
+
+        $data['title'] = "Ganti Password | Madrasah Diniyah Raport";
+        // $data['santri'] = $this->m_madrasah->edit_data($where,'santri')->result();
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-ganti-password', $data);
         $this->load->view('admin/footer');
-    }
-
-    function mobil_update(){
-        $id = $this->input->post('id');
-        $merk = $this->input->post('merk');
-        $plat = $this->input->post('plat');
-        $warna = $this->input->post('warna');
-        $tahun = $this->input->post('tahun');
-        $status = $this->input->post('status');
-        $this->form_validation->set_rules('merk', 'Merk Mobil', 'required');
-        $this->form_validation->set_rules('status', 'Status Mobil', 'required');
-
-        if($this->form_validation->run() != false){
-            $where = array(
-                'mobil_id' => $id
-            );
-            $data = array(
-                'mobil_merk' => $merk,
-                'mobil_plat' => $plat,
-                'mobil_warna' => $warna,
-                'mobil_tahun' => $tahun,
-                'mobil_status' => $status
-            );
-            $this->m_rental->update_data($where, $data, 'mobil');
-            redirect(base_url().'admin/mobil');
-        }else{
-            $where = array(
-                'mobil_id' => $id
-            );
-            $data['mobil'] = $this->m_rental->edit_data($where, 'mobil')->result();
-            $this->load->view('admin/header');
-            $this->load->view('admin/mobil_edit', $data);
-            $this->load->view('admin/footer');
-        }
-    }
-
-    function mobil_hapus($id){
-        $where = array(
-            'mobil_id' => $id
-        );
-        $this->m_rental->delete_data($where, 'mobil');
-        redirect(base_url().'admin/mobil'); 
     }
 
     function logout(){
