@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2022 pada 18.17
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Waktu pembuatan: 18 Jun 2022 pada 06.51
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,6 +44,18 @@ INSERT INTO `admin` (`admin_id`, `admin_nama`, `admin_username`, `admin_password
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `kategori_id` int(11) NOT NULL,
+  `nama_kategori` varchar(25) NOT NULL,
+  `tgl_dibuat` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `mapel`
 --
 
@@ -51,6 +63,21 @@ CREATE TABLE `mapel` (
   `mapel_id` int(11) NOT NULL,
   `mapel_nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `mapel`
+--
+
+INSERT INTO `mapel` (`mapel_id`, `mapel_nama`) VALUES
+(2, 'Al Qur\'an'),
+(3, 'Al Hadist'),
+(4, 'Terjemah'),
+(5, 'Aqidah Ahlak'),
+(6, 'Fiqih'),
+(7, 'SKI'),
+(8, 'B. Arab'),
+(9, 'Praktek Ibadah'),
+(10, 'Doa Harian');
 
 -- --------------------------------------------------------
 
@@ -63,6 +90,13 @@ CREATE TABLE `pengajar` (
   `pengajar_nama` varchar(50) NOT NULL,
   `pengajar_jk` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pengajar`
+--
+
+INSERT INTO `pengajar` (`pengajar_id`, `pengajar_nama`, `pengajar_jk`) VALUES
+(1, 'Pak Haji', 'Laki-Laki');
 
 -- --------------------------------------------------------
 
@@ -90,6 +124,14 @@ CREATE TABLE `santri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `santri`
+--
+
+INSERT INTO `santri` (`santri_id`, `santri_nama`, `santri_jk`) VALUES
+(5, 'Kevin', 'Laki-Laki'),
+(6, 'Anne', 'Perempuan');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -98,6 +140,12 @@ CREATE TABLE `santri` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indeks untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`kategori_id`);
 
 --
 -- Indeks untuk tabel `mapel`
@@ -136,16 +184,22 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `pengajar_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pengajar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian`
@@ -157,7 +211,7 @@ ALTER TABLE `penilaian`
 -- AUTO_INCREMENT untuk tabel `santri`
 --
 ALTER TABLE `santri`
-  MODIFY `santri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `santri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

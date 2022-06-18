@@ -17,9 +17,13 @@
                 </div>
                 <section class="section">
                     <div class="card">
-                        <!-- <div class="card-header">
-                            Simple Datatable
-                        </div> -->
+                        <div class="card-header">
+                            Tabel Pengajar
+                            <div class="float-lg-end">
+                                <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Pengajar</a>
+                                <a href="<?php echo base_url().'pengajar/table_pengajar' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
                                 <thead>

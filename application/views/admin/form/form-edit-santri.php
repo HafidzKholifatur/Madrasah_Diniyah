@@ -63,8 +63,7 @@
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <button type="submit"
                                                             class="btn btn-primary me-1 mb-1">Simpan</button>
-                                                        <button type="reset"
-                                                            class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                        <a href="<?php echo base_url().'santri/tabel_santri' ?>" class="btn btn-light-secondary me-1 mb-1">Batal</a>
                                                     </div>
                                                 </div>
                                             </div>

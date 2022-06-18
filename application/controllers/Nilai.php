@@ -12,85 +12,67 @@ class Nilai extends CI_Controller{
         // }
     }
 
-    function index(){
-        // $data['transaksi'] = $this->db->query("SELECT * FROM transaksi ORDER BY transaksi_id DESC LIMIT 10")->result();
-        // $data['kostumer'] = $this->db->query("SELECT * FROM kostumer ORDER BY kostumer_id DESC LIMIT 10")->result();
-        // $data['mobil'] = $this->db->query("SELECT * FROM mobil ORDER BY mobil_id DESC LIMIT 10")->result();
-
-        $this->load->view('admin/header');
-        $this->load->view('admin/index');
-        $this->load->view('admin/footer');
-    }
-
-    function tabel_santri(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
-        $this->load->view('admin/table/table-santri');
-        $this->load->view('admin/footer');
-    }
-
-    function tambah_santri(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-santri');
-        $this->load->view('admin/footer');
-    }
-
-    function tabel_pengajar(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
-        $this->load->view('admin/table/table-pengajar');
-        $this->load->view('admin/footer');
-    }
-
-    function tambah_pengajar(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-pengajar');
-        $this->load->view('admin/footer');
-    }
-
     function tabel_nilai(){
-        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
+        $data['title'] = "Table Nilai | Madrasah Diniyah Raport";
+        $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/table/table-nilai');
         $this->load->view('admin/footer');
     }
 
     function tambah_nilai(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-nilai');
+        $data['title'] = "Tambah Nilai | Madrasah Diniyah Raport";
+        $data['santri'] = $this->m_madrasah->get_data('santri')->result();
+        $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-tambah-nilai', $data);
         $this->load->view('admin/footer');
     }
 
-    function kontak(){
-        $this->load->view('admin/header');
-        $this->load->view('admin/form/form-tambah-pengajar');
-        $this->load->view('admin/footer');
-    }
+    function aksi_tambah_nilai(){
+        $santri = $this->input->post('santri_id');
+        $mapel_id = $this->input->post('mapel_id[]');
+        $nilai = $this->input->post('nilai[]');
 
-    function mobil_add_act(){
-        $merk = $this->input->post('merk');
-        $plat = $this->input->post('plat');
-        $warna = $this->input->post('warna');
-        $tahun = $this->input->post('tahun');
-        $status = $this->input->post('status');
-        $this->form_validation->set_rules('merk', 'Merk Mobil', 'required');
-        $this->form_validation->set_rules('status', 'Status Mobil', 'required');
-
-        if($this->form_validation->run() != false){
-            $data = array(
-                'mobil_merk' => $merk,
-                'mobil_plat' => $plat,
-                'mobil_warna' => $warna,
-                'mobil_tahun' => $tahun,
-                'mobil_status' => $status
-            );
-            $this->m_rental->insert_data($data, 'mobil');
-            redirect(base_url().'admin/mobil');
-        }else{
-            $this->load->view('admin/header');
-            $this->load->view('admin/mobil_add');
-            $this->load->view('admin/footer');
+        foreach($mapel_id as $map){
+            $map;
         }
+        foreach($nilai as $nil){
+            $nil;
+        }
+
+        // CARI CARA GIMANA $DATA MASUKIN SEMUA DATA, BUKAN CUMA 1
+
+        // var_dump($nilai);
+        $data = array(
+            'santri_id' => $santri,
+            'mapel_id' => $map,
+            'nilai' => $nil
+        );
+
+        foreach($data as $dat){
+            var_dump($dat);
+            // $this->m_madrasah->insert_data($dat, 'penilaian');
+        }
+        // $this->m_madrasah->insert_data($dat, 'penilaian');
+        // redirect(base_url().'nilai/tabel_nilai');
+
+        // 
+        // if(){
+        //     $data = array(
+        //         'santri_id' => $santri,
+        //         'mapel_id' => $mapel_id,
+        //         'nilai' => $nilai
+        //     );
+        //     $this->m_madrasah->insert_data($data, 'nilai');
+        //     redirect(base_url().'nilai/tabel_nilai');
+        // }else{
+
+        //     redirect(base_url().'nilai/tambah_nilai');
+        //     $this->load->view('admin/header');
+        //     $this->load->view('admin/form/form-tambah-nilai');
+        //     $this->load->view('admin/footer');
+        // }
     }
 
     function mobil_edit($id){

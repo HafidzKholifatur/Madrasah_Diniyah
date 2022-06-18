@@ -12,13 +12,15 @@ class Admin extends CI_Controller{
         }
     }
 
-    function index(){
+    function index(){ 
+        $data['title'] = "Dashboard | Madrasah Diniyah Raport";
+        $data['santri'] = $this->m_madrasah->get_data('santri')->result();
         // $data['transaksi'] = $this->db->query("SELECT * FROM transaksi ORDER BY transaksi_id DESC LIMIT 10")->result();
         // $data['kostumer'] = $this->db->query("SELECT * FROM kostumer ORDER BY kostumer_id DESC LIMIT 10")->result();
         // $data['mobil'] = $this->db->query("SELECT * FROM mobil ORDER BY mobil_id DESC LIMIT 10")->result();
 
-        $this->load->view('admin/header');
-        $this->load->view('admin/index');
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/index', $data);
         $this->load->view('admin/footer');
     }
 

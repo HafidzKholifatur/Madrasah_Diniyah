@@ -13,14 +13,16 @@ class Pengajar extends CI_Controller{
     }
 
     function table_pengajar(){
+        $data['title'] = "Table Pengajar | Madrasah Diniyah Raport";
         $data['pengajar'] = $this->m_madrasah->get_data('pengajar')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/table/table-pengajar', $data);
         $this->load->view('admin/footer');
     }
 
     function tambah_pengajar(){
-        $this->load->view('admin/header');
+        $data['title'] = "Tambah Pengajar | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-tambah-pengajar');
         $this->load->view('admin/footer');
     }
@@ -48,8 +50,9 @@ class Pengajar extends CI_Controller{
         $where = array(
             'pengajar_id' => $id
         );
+        $data['title'] = "Edit Pengajar | Madrasah Diniyah Raport";
         $data['pengajar'] = $this->m_madrasah->edit_data($where,'pengajar')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-edit-pengajar', $data);
         $this->load->view('admin/footer');
     }

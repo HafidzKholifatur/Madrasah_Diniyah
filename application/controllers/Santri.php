@@ -13,14 +13,16 @@ class Santri extends CI_Controller{
     }
 
     function tabel_santri(){
+        $data['title'] = "Tabel Santri | Madrasah Diniyah Raport";
         $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/table/table-santri',$data);
         $this->load->view('admin/footer');
     }
 
     function tambah_santri(){
-        $this->load->view('admin/header');
+        $data['title'] = "Tambah Santri | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-tambah-santri');
         $this->load->view('admin/footer');
     }
@@ -48,8 +50,9 @@ class Santri extends CI_Controller{
         $where = array(
             'santri_id' => $id
         );
+        $data['title'] = "Edit Santri | Madrasah Diniyah Raport";
         $data['santri'] = $this->m_madrasah->edit_data($where,'santri')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-edit-santri', $data);
         $this->load->view('admin/footer');
     }

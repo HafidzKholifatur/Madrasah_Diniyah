@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Nanti diisi variabel dari controller "title" buat setiap page terus dipanggil disini -->
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title><?php echo $title ?></title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -43,82 +43,70 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li  class="sidebar-item <?=active_menu('admin')?>">
+                        <li class="sidebar-item <?= active_menu('admin') ?>">
                             <a href="<?php echo site_url('admin'); ?>" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  has-sub <?=active_menu('santri')?>">
+                        <li class="sidebar-item  has-sub <?= active_menu('santri') ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-person-workspace"></i>
                                 <span>Data Santri</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item">
-                                    <a href="<?php echo base_url().'santri/tabel_santri' ?>">Tabel Santri</a>
+                                    <a href="<?php echo base_url() . 'santri/tabel_santri' ?>">Tabel Santri</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'santri/tambah_santri' ?>">Tambah Data Santri</a>
+                                    <a href="<?php echo base_url() . 'santri/tambah_santri' ?>">Tambah Data Santri</a>
                                 </li>
-                                <!-- <li class="submenu-item ">
-                                    <a href="component-breadcrumb.html">Breadcrumb</a>
-                                </li> -->
                             </ul>
                         </li>
 
-                        <li class="sidebar-item  has-sub <?=active_menu('pengajar')?>">
+                        <li class="sidebar-item  has-sub <?= active_menu('pengajar') ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-collection-fill"></i>
                                 <span>Data Pengajar</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'pengajar/table_pengajar' ?>">Tabel Pengajar</a>
+                                    <a href="<?php echo base_url() . 'pengajar/table_pengajar' ?>">Tabel Pengajar</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>">Tambah Data Pengajar</a>
+                                    <a href="<?php echo base_url() . 'pengajar/tambah_pengajar' ?>">Tambah Data Pengajar</a>
                                 </li>
-                                <!-- <li class="submenu-item ">
-                                    <a href="extra-component-toastify.html">Toastify</a>
-                                </li> -->
                             </ul>
                         </li>
 
-                        <li class="sidebar-item  has-sub <?=active_menu('mapel')?>">
+                        <li class="sidebar-item  has-sub <?= active_menu('mapel') ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-book-half"></i>
                                 <span>Data Mapel</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'mapel/tabel_mapel' ?>">Tabel Mapel</a>
+                                    <a href="<?php echo base_url() . 'mapel/tabel_mapel' ?>">Tabel Mapel</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'mapel/tambah_mapel' ?>">Tambah Data Mapel</a>
+                                    <a href="<?php echo base_url() . 'mapel/tambah_mapel' ?>">Tambah Data Mapel</a>
                                 </li>
-                                <!-- <li class="submenu-item ">
-                                    <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                                </li> -->
                             </ul>
                         </li>
 
-                        <li class="sidebar-item  has-sub <?=active_menu('nilai')?>">
+                        <li class="sidebar-item  has-sub <?= active_menu('nilai') ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-archive-fill"></i>
                                 <span>Data Nilai</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'nilai/tabel_nilai' ?>">Tabel Nilai</a>
+                                    <a href="<?php echo base_url() . 'nilai/tabel_nilai' ?>">Tabel Nilai</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?php echo base_url().'nilai/tambah_nilai' ?>">Tambah Data Nilai</a>
+                                    <a href="<?php echo base_url() . 'nilai/tambah_nilai' ?>">Tambah Data Nilai</a>
                                 </li>
-                                <!-- <li class="submenu-item ">
-                                    <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                                </li> -->
                             </ul>
                         </li>
 
@@ -129,8 +117,8 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item <?=active_menu('kontak')?>">
-                            <a href="<?php echo base_url().'admin/kontak' ?>" class='sidebar-link'>
+                        <li class="sidebar-item <?= active_menu('kontak') ?>">
+                            <a href="<?php echo base_url() . 'admin/kontak' ?>" class='sidebar-link'>
                                 <i class="bi bi-chat-square-dots-fill"></i>
                                 <span>Kontak</span>
                             </a>

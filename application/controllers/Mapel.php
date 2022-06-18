@@ -12,25 +12,17 @@ class Mapel extends CI_Controller{
         // }
     }
 
-    function index(){
-        // $data['transaksi'] = $this->db->query("SELECT * FROM transaksi ORDER BY transaksi_id DESC LIMIT 10")->result();
-        // $data['kostumer'] = $this->db->query("SELECT * FROM kostumer ORDER BY kostumer_id DESC LIMIT 10")->result();
-        // $data['mobil'] = $this->db->query("SELECT * FROM mobil ORDER BY mobil_id DESC LIMIT 10")->result();
-
-        $this->load->view('admin/header');
-        $this->load->view('admin/index');
-        $this->load->view('admin/footer');
-    }
-
     function tabel_mapel(){
+        $data['title'] = "Tabel Mata Pelajaran | Madrasah Diniyah Raport";
         $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/table/table-mapel',$data);
         $this->load->view('admin/footer');
     }
 
     function tambah_mapel(){
-        $this->load->view('admin/header');
+        $data['title'] = "Tambah Mata Pelajaran | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-tambah-mapel');
         $this->load->view('admin/footer');
     }
@@ -56,8 +48,9 @@ class Mapel extends CI_Controller{
         $where = array(
             'mapel_id' => $id
         );
+        $data['title'] = "Edit Mata Pelajaran | Madrasah Diniyah Raport";
         $data['mapel'] = $this->m_madrasah->edit_data($where, 'mapel')->result();
-        $this->load->view('admin/header');
+        $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-edit-mapel', $data);
         $this->load->view('admin/footer');
     }

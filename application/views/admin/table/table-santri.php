@@ -17,9 +17,13 @@
                 </div>
                 <section class="section">
                     <div class="card">
-                        <!-- <div class="card-header">
-                            Simple Datatable
-                        </div> -->
+                        <div class="card-header">
+                            Tabel Santri/Santriwati
+                            <div class="float-lg-end">
+                                <a href="<?php echo base_url().'santri/tambah_santri' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Santri</a>
+                                <a href="<?php echo base_url().'santri/tabel_santri' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
                                 <thead>
@@ -31,7 +35,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no = 1; foreach($santri as $s) { ?>
+                                    <?php 
+                                    $no = 1; 
+                                    foreach($santri as $s) { 
+                                    ?>
                                     <tr>
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $s->santri_nama ?></td>
