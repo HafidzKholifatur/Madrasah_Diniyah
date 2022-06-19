@@ -93,6 +93,20 @@ class Admin extends CI_Controller{
         // $this->load->view('admin/footer');
     }
 
+    function profile(){
+        $data['title'] = "Profile Admin | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/profile');
+        $this->load->view('admin/footer');
+    }
+
+    function edit_profile(){
+        $data['title'] = "Edit Profile Admin | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-edit-profile');
+        $this->load->view('admin/footer');
+    }
+
     function logout(){
         $this->session->sess_destroy();
         redirect(base_url().'welcome?pesan=logout');
