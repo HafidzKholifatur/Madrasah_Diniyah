@@ -43,21 +43,21 @@ class Admin extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    function ganti_password(){
-        $where = array(
+    public function ganti_password(){
+        // $where = array(
             // 'santri_id' => $id
-        );
+        // );
 
         // LINK TUTORIAL GANTI PASSWORD
         // https://www.youtube.com/watch?v=zwazZNZRKxQ
 
         $data['title'] = "Ganti Password | Madrasah Diniyah Raport";
         $data = $this->m_madrasah->get_data('admin')->result();
-        // $data['admin'] = $this->db->get_where('admin', ['admin_id' => $this->session->userdata('admin_id')])->row_array();
+        $data['admin'] = $this->db->get_where('admin', ['admin_username' => $this->session->userdata('admin_username')])->row_array();
 
         $this->form_validation->set_rules('pass_lama', 'Password Lama', 'required|trim');
-        $this->form_validation->set_rules('pass_baru', 'Password Baru', 'required|trim|min_lenght[3]|matches[ulang_pass_baru]');
-        $this->form_validation->set_rules('ulang_pass_baru', 'Ulang Password Baru', 'required|trim|min_lenght[3]|matches[pass_baru]');
+        $this->form_validation->set_rules('pass_baru', 'Password Baru', 'required|trim|matches[ulang_pass_baru]');
+        $this->form_validation->set_rules('ulang_pass_baru', 'Ulang Password Baru', 'required|trim|matches[pass_baru]');
 
         if($this->form_validation->run() == false){
             $this->load->view('admin/header', $data);
@@ -66,7 +66,7 @@ class Admin extends CI_Controller{
         }else{  
             $pass_lama = $this->input->post('pass_lama');
             $pass_baru = $this->input->post('pass_baru');
-            if(!password_verify($pass_lama, $data['admin']['admin_password'])){
+            if(password_verify($pass_lama, $data['admin']['admin_password'])){
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Lama Salah!</div>');
                 redirect('admin/ganti_password');
             } else {
@@ -78,7 +78,7 @@ class Admin extends CI_Controller{
                     $password_hash = password_hash($pass_baru, PASSWORD_DEFAULT);
 
                     $this->db->set('admin_password', $password_hash);
-                    $this->db->where('admin_id', $this->session->userdata('admin_id'));
+                    $this->db->where('admin_username', $this->session->userdata('admin_username'));
                     $this->db->update('admin');
 
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Password Berhasil Diubah!</div>');
@@ -86,11 +86,6 @@ class Admin extends CI_Controller{
                 }
             }
         }
-        
-        // $data['santri'] = $this->m_madrasah->edit_data($where,'santri')->result();
-        // $this->load->view('admin/header', $data);
-        // $this->load->view('admin/form/form-ganti-password', $data);
-        // $this->load->view('admin/footer');
     }
 
     function profile(){

@@ -34,7 +34,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Password Lama</label>
                                                 <div class="position-relative">
-                                                    <input type="password" name="pass_lama" class="form-control" id="pass_lama" value="">
+                                                    <input type="password" name="pass_lama" class="form-control" id="pass_lama">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-lock"></i>
                                                     </div>
@@ -46,7 +46,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Password Baru</label>
                                                 <div class="position-relative">
-                                                    <input type="password" name="pass_baru" class="form-control" id="pass_baru" value="">
+                                                    <input type="password" name="pass_baru" class="form-control" id="pass_baru">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-key"></i>
                                                     </div>
@@ -58,7 +58,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Ketik Ulang Password Baru</label>
                                                 <div class="position-relative">
-                                                    <input type="password" name="ulang_pass_baru" class="form-control" id="ulang_pass_baru" value="">
+                                                    <input type="password" name="ulang_pass_baru" class="form-control" id="ulang_pass_baru" >
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-key"></i>
                                                     </div>
