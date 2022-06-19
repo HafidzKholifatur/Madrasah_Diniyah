@@ -59,33 +59,33 @@ class Admin extends CI_Controller{
         $this->form_validation->set_rules('pass_baru', 'Password Baru', 'required|trim|min_lenght[3]|matches[ulang_pass_baru]');
         $this->form_validation->set_rules('ulang_pass_baru', 'Ulang Password Baru', 'required|trim|min_lenght[3]|matches[pass_baru]');
 
-        // if($this->form_validation->run() == false){
-        //     $this->load->view('admin/header', $data);
-        //     $this->load->view('admin/form/form-ganti-password', $data);
-        //     $this->load->view('admin/footer');
-        // }else{  
-        //     $pass_lama = $this->input->post('pass_lama');
-        //     $pass_baru = $this->input->post('pass_baru');
-        //     if(!password_verify($pass_lama, $data['admin']['admin_password'])){
-        //         $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Lama Salah!</div>');
-        //         redirect('admin/ganti_password');
-        //     } else {
-        //         if($pass_lama == $pass_baru){
-        //             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Baru Tidak Boleh Dengan Yang Lama!</div>');
-        //             redirect('admin/ganti_password');
-        //         } else {
-        //             // password jika sudah benar
-        //             $password_hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+        if($this->form_validation->run() == false){
+            $this->load->view('admin/header', $data);
+            $this->load->view('admin/form/form-ganti-password', $data);
+            $this->load->view('admin/footer');
+        }else{  
+            $pass_lama = $this->input->post('pass_lama');
+            $pass_baru = $this->input->post('pass_baru');
+            if(!password_verify($pass_lama, $data['admin']['admin_password'])){
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Lama Salah!</div>');
+                redirect('admin/ganti_password');
+            } else {
+                if($pass_lama == $pass_baru){
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Baru Tidak Boleh Dengan Yang Lama!</div>');
+                    redirect('admin/ganti_password');
+                } else {
+                    // password jika sudah benar
+                    $password_hash = password_hash($pass_baru, PASSWORD_DEFAULT);
 
-        //             $this->db->set('admin_password', $password_hash);
-        //             $this->db->where('admin_id', $this->session->userdata('admin_id'));
-        //             $this->db->update('admin');
+                    $this->db->set('admin_password', $password_hash);
+                    $this->db->where('admin_id', $this->session->userdata('admin_id'));
+                    $this->db->update('admin');
 
-        //             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Password Berhasil Diubah!</div>');
-        //             redirect('admin/ganti_password');
-        //         }
-        //     }
-        // }
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Password Berhasil Diubah!</div>');
+                    redirect('admin/ganti_password');
+                }
+            }
+        }
         
         // $data['santri'] = $this->m_madrasah->edit_data($where,'santri')->result();
         // $this->load->view('admin/header', $data);
