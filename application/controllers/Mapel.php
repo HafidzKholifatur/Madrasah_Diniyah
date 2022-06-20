@@ -33,7 +33,7 @@ class Mapel extends CI_Controller{
 
         if($this->form_validation->run() != false){
             $data = array(
-                'mapel_nama' => $mapel
+                'mapel_nama' => $mapel  
             );
             $this->m_madrasah->insert_data($data, 'mapel');
             redirect(base_url().'mapel/tabel_mapel');
@@ -62,7 +62,7 @@ class Mapel extends CI_Controller{
         if($this->form_validation->run() != false){
             $where = array(
                 'mapel_id' => $id
-            );
+            ); 
             $data = array(
                 'mapel_nama' => $mapel
             );

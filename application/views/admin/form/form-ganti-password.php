@@ -27,7 +27,7 @@
                     <div class="card-content">
                         <div class="card-body">
                             <?php echo $this->session->flashdata('pesan'); ?>
-                            <form class="form form-vertical" action="<?php echo base_url() . 'admin/ganti_password' ?>" method="post">
+                            <form class="form form-vertical" action="<?php echo base_url() . 'admin/proses_ganti_password' ?>" method="post">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">

@@ -43,13 +43,35 @@ class Admin extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
+<<<<<<< HEAD
     public function ganti_password(){
+=======
+    function ganti_password(){
+        $data['title'] = "Ganti Password | Madrasah Diniyah Raport";
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-ganti-password');
+        $this->load->view('admin/footer');
+
+    }
+
+    public function proses_ganti_password(){
+        // $where = array(
+            // 'santri_id' => $id
+        // );
+>>>>>>> e7d12d6 (Update Nilai)
 
 		$this->form_validation->set_rules('old_pass', 'Old Password', 'trim|required|max_length[150]');
 		$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|max_length[150]');
 		$this->form_validation->set_rules('rep_new_pass', 'Repeat Password', 'trim|required|max_length[150]|matches[new_pass]');
 
+<<<<<<< HEAD
 		if($this->form_validation->run() == false){
+=======
+        $datat['title'] = "Ganti Password | Madrasah Diniyah Raport";
+        $data = $this->m_madrasah->get_data('admin')->result();
+        $data['admin'] = $this->db->get_where('admin', ['admin_username' => $this->session->userdata('admin_username')])->row_array();
+>>>>>>> e7d12d6 (Update Nilai)
 
 			$data['title'] = "Ganti Password";
 			$this->load->view('admin/header',$data);
@@ -57,6 +79,7 @@ class Admin extends CI_Controller{
 			$this->load->view('admin/footer');
 		}else{
 
+<<<<<<< HEAD
 			// Update Data
 			$data = array(
 				'admin_password' => md5($this->input->post('new_pass')),
@@ -81,6 +104,25 @@ class Admin extends CI_Controller{
 		
 	}
     
+=======
+        if($this->form_validation->run() == false){
+            $this->load->view('admin/header', $datat);
+            $this->load->view('admin/form/form-ganti-password', $data);
+            $this->load->view('admin/footer');
+        }else{  
+            $pass_lama = $this->input->post('pass_lama');
+            $pass_baru = $this->input->post('pass_baru');
+            if(password_verify($pass_lama, $data['admin']['admin_password'])){
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Lama Salah!</div>');
+                redirect('admin/ganti_password');
+            } else {
+                if($pass_lama == $pass_baru){
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Baru Tidak Boleh Dengan Yang Lama!</div>');
+                    redirect('admin/ganti_password');
+                } else {
+                    // password jika sudah benar
+                    $password_hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+>>>>>>> e7d12d6 (Update Nilai)
 
     // public function ganti_password(){
     //     // $where = array(
@@ -127,6 +169,51 @@ class Admin extends CI_Controller{
     //     }
     // }
 
+    // public function proses_ganti_password(){
+    //     $where = array(
+    //         'santri_id' => $id
+    //     );
+
+    //     LINK TUTORIAL GANTI PASSWORD
+    //     https://www.youtube.com/watch?v=zwazZNZRKxQ
+
+    //     $datat['title'] = "Ganti Password | Madrasah Diniyah Raport";
+    //     $data = $this->m_madrasah->get_data('admin')->result();
+    //     $data['admin'] = $this->db->get_where('admin', ['admin_username' => $this->session->userdata('admin_username')])->row_array();
+
+    //     $this->form_validation->set_rules('pass_lama', 'Password Lama', 'required|trim');
+    //     $this->form_validation->set_rules('pass_baru', 'Password Baru', 'required|trim|matches[ulang_pass_baru]');
+    //     $this->form_validation->set_rules('ulang_pass_baru', 'Ulang Password Baru', 'required|trim|matches[pass_baru]');
+
+    //     if($this->form_validation->run() == false){
+    //         $this->load->view('admin/header', $datat);
+    //         $this->load->view('admin/form/form-ganti-password', $data);
+    //         $this->load->view('admin/footer');
+    //     }else{  
+    //         $pass_lama = $this->input->post('pass_lama');
+    //         $pass_baru = $this->input->post('pass_baru');
+    //         if(password_verify($pass_lama, $data['admin']['admin_password'])){
+    //             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Lama Salah!</div>');
+    //             redirect('admin/ganti_password');
+    //         } else {
+    //             if($pass_lama == $pass_baru){
+    //                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password Baru Tidak Boleh Sama Dengan Yang Lama!</div>');
+    //                 redirect('admin/ganti_password');
+    //             } else {
+    //                 password jika sudah benar
+    //                 $password_hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+
+    //                 $this->db->set('admin_password', $password_hash);
+    //                 $this->db->where('admin_username', $this->session->userdata('admin_username'));
+    //                 $this->db->update('admin');
+
+    //                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Password Berhasil Diubah!</div>');
+    //                 redirect('admin/ganti_password');
+    //             }
+    //         }
+    //     }
+    // }
+
     function profile(){
         $data['title'] = "Profile Admin | Madrasah Diniyah Raport";
         $this->load->view('admin/header', $data);
@@ -135,9 +222,19 @@ class Admin extends CI_Controller{
     }
 
     function edit_profile(){
+        // $where = array(
+        //     'admin_id' => $id
+        // );
+
         $data['title'] = "Edit Profile Admin | Madrasah Diniyah Raport";
+        // $data['admin'] = $this->db->get_where('admin', ['admin_nama' => 
+        // $this->session->userdata('admin')])->row_array();
+
+        $data['admin'] = $this->m_madrasah->get_data('admin')->result();
+        
+
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/form/form-edit-profile');
+        $this->load->view('admin/form/form-edit-profile', $data);
         $this->load->view('admin/footer');
     }
 
