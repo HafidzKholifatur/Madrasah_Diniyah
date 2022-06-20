@@ -21,7 +21,7 @@
                             Tabel Santri/Santriwati
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'santri/tambah_santri' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Santri</a>
-                                <a href="<?php echo base_url().'santri/tabel_santri' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url().'santri/cetak_data_santri' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -31,6 +31,8 @@
                                         <th>No</th>
                                         <th>Nama Santri/Santriwati</th>
                                         <th>Jenis Kelamin</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Alamat</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -43,6 +45,8 @@
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $s->santri_nama ?></td>
                                         <td><?php echo $s->santri_jk ?></td>
+                                        <td><?php echo date('d/m/Y', strtotime($s->santri_lahir)); ?></td>
+                                        <td><?php echo $s->santri_alamat ?></td>
                                         <td class="text-center">
                                             <a href="<?php echo base_url().'santri/santri_edit/'.$s->santri_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit

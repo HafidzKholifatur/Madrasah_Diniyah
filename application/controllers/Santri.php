@@ -30,12 +30,19 @@ class Santri extends CI_Controller{
     function aksi_tambah_santri(){
         $nama = $this->input->post('nama');
         $jk = $this->input->post('jk');
+        $tgl_lahir = $this->input->post('tgl_lahir');
+        $alamat = $this->input->post('alamat');
         $this->form_validation->set_rules('nama', 'Nama Santri/Santriwati', 'required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('alamat', 'alamat', 'required');
+
 
         if($this->form_validation->run() != false){
             $data = array(
                 'santri_nama' => $nama,
-                'santri_jk' => $jk
+                'santri_jk' => $jk,
+                'santri_lahir' => $tgl_lahir,
+                'santri_alamat' => $alamat
             );
             $this->m_madrasah->insert_data($data, 'santri');
             redirect(base_url().'santri/tabel_santri');
@@ -61,7 +68,11 @@ class Santri extends CI_Controller{
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $jk = $this->input->post('jk');
+        $tgl_lahir = $this->input->post('tgl_lahir');
+        $alamat = $this->input->post('alamat');
         $this->form_validation->set_rules('nama', 'Nama Santri', 'required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat ', 'required');
 
         if($this->form_validation->run() != false){
             $where = array(
@@ -69,7 +80,9 @@ class Santri extends CI_Controller{
             );
             $data = array(
                 'santri_nama' => $nama,
-                'santri_jk' => $jk
+                'santri_jk' => $jk,
+                'santri_lahir' => $tgl_lahir,
+                'santri_alamat' => $alamat
             );
             $this->m_madrasah->update_data($where, $data, 'santri');
             redirect(base_url().'santri/tabel_santri');
@@ -91,5 +104,10 @@ class Santri extends CI_Controller{
         );
         $this->m_madrasah->delete_data($where, 'santri');
         redirect(base_url().'santri/tabel_santri'); 
+    }
+
+    function cetak_data_santri(){
+        $data['santri'] = $this->m_madrasah->tampil_data("santri")->result();
+        $this->load->view('admin/cetak_data/cetak-data-pengajar', $data);
     }
 }

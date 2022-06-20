@@ -21,7 +21,7 @@
                             Tabel Pengajar
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Pengajar</a>
-                                <a href="<?php echo base_url().'pengajar/table_pengajar' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url().'pengajar/cetak_data_pengajar' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -31,6 +31,9 @@
                                         <th>No</th>
                                         <th>Nama Pengajar</th>
                                         <th>Jenis Kelamin</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>No Telpon</th>
+                                        <th>Alamat</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -43,6 +46,9 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $p->pengajar_nama ?></td>
                                         <td><?= $p->pengajar_jk ?></td>
+                                        <td><?= $p->pengajar_lahir ?></td>
+                                        <td><?= $p->pengajar_telp ?></td>
+                                        <td><?= $p->pengajar_alamat ?></td>
                                         <td class="text-center">
                                             <a href="<?php echo base_url().'pengajar/pengajar_edit/'.$p->pengajar_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit

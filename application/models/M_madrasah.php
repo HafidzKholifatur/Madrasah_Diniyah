@@ -23,4 +23,12 @@ class M_madrasah extends CI_Model{
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    public function tampil_data(){
+        return $this->db->get('santri');
+    }
+
+    public function tampil_data_pengajar(){
+        return $this->db->get('pengajar');
+    }
 }

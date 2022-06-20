@@ -27,19 +27,17 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form form-vertical" method="POST" action="<?php echo base_url().'pengajar/aksi_tambah_pengajar' ?>">
+                                        <form class="form form-vertical" method="POST" action="<?php echo base_url() . 'pengajar/aksi_tambah_pengajar' ?>">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group has-icon-left">
                                                             <label for="first-name-icon">Nama Pengajar</label>
                                                             <div class="position-relative">
-                                                                <input type="text" name="nama" class="form-control"
-                                                                    placeholder="Masukan Nama Pengajar"
-                                                                    id="first-name-icon">
+                                                                <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Pengajar" id="first-name-icon">
                                                                 <div class="form-control-icon">
                                                                     <i class="bi bi-person"></i>
-                                                                </div>  
+                                                                </div>
                                                             </div>
                                                             <?php echo form_error('nama'); ?>
                                                         </div>
@@ -48,9 +46,8 @@
                                                         <div class="form-group has-icon-left">
                                                             <label for="email-id-icon">Jenis Kelamin</label>
                                                             <div class="position-relative">
-                                                                <select name="jk" class="form-select form-control"
-                                                                    id="basicSelect">
-                                                                    <!-- <option <?php echo ($k->jurusan == 'TI') ? "selected": "" ?>>TI</option> -->
+                                                                <select name="jk" class="form-select form-control" id="basicSelect">
+                                                                    <!-- <option <?php echo ($k->jurusan == 'TI') ? "selected" : "" ?>>TI</option> -->
                                                                     <option value="Laki-Laki">Laki-Laki</option>
                                                                     <option value="Perempuan">Perempuan</option>
                                                                 </select>
@@ -60,11 +57,45 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="first-name-icon">Tanggal Lahir</label>
+                                                            <div class="position-relative">
+                                                                <input type="date" name="tgl_lahir_pengajar" class="form-control">
+                                                                <div class="form-control-icon">
+                                                                    <i class="bi bi-calendar-event-fill"></i>
+                                                                </div>
+                                                            </div>
+                                                            <?php echo form_error('tgl_lahir_pengajar'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="first-name-icon">No Telepon</label>
+                                                            <div class="position-relative">
+                                                                <input type="number" name="telp" class="form-control" placeholder="Masukan Nomor Telepon" id="first-name-icon">
+                                                                <div class="form-control-icon">
+                                                                    <i class="bi bi-phone-fill"></i>
+                                                                </div>
+                                                            </div>
+                                                            <?php echo form_error('telp'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="first-name-icon">Alamat</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" name="alamat_pengajar" class="form-control" placeholder="Masukan Alamat" id="first-name-icon">
+                                                                <div class="form-control-icon">
+                                                                    <i class="bi bi-pin-map-fill"></i>
+                                                                </div>
+                                                            </div>
+                                                            <?php echo form_error('alamat_pengajar'); ?>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-12 d-flex justify-content-end">
-                                                        <button type="submit"
-                                                            class="btn btn-primary me-1 mb-1">Simpan</button>
-                                                        <button type="reset"
-                                                            class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                                     </div>
                                                 </div>
                                             </div>

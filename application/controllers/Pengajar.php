@@ -30,12 +30,21 @@ class Pengajar extends CI_Controller{
     function aksi_tambah_pengajar(){
         $nama = $this->input->post('nama');
         $jk = $this->input->post('jk');
+        $tgl_lahir = $this->input->post('tgl_lahir_pengajar');
+        $telp = $this->input->post('telp');
+        $alamat = $this->input->post('alamat_pengajar');
         $this->form_validation->set_rules('nama', 'Nama Pengajar', 'required');
+        $this->form_validation->set_rules('tgl_lahir_pengajar', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('telp', 'Nomor Telepon', 'required');
+        $this->form_validation->set_rules('alamat_pengajar', 'Alamat', 'required');
 
         if($this->form_validation->run() != false){
             $data = array(
                 'pengajar_nama' => $nama,
-                'pengajar_jk' => $jk
+                'pengajar_jk' => $jk,
+                'pengajar_lahir' => $tgl_lahir,
+                'pengajar_telp' => $telp,
+                'pengajar_alamat' => $alamat
             );
             $this->m_madrasah->insert_data($data, 'pengajar');
             redirect(base_url().'pengajar/table_pengajar');
@@ -92,8 +101,8 @@ class Pengajar extends CI_Controller{
         redirect(base_url().'pengajar/table_pengajar'); 
     }
 
-    function logout(){
-        $this->session->sess_destroy();
-        redirect(base_url().'welcome?pesan=logout');
+    function cetak_data_pengajar(){
+        $data['pengajar'] = $this->m_madrasah->tampil_data_pengajar("pengajar")->result();
+        $this->load->view('admin/cetak_data/cetak-data-pengajar', $data);
     }
 }
