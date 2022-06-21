@@ -16,7 +16,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Total Santri</h6>
-                                                <h6 class="font-extrabold mb-0">112.000</h6>
+                                                <h6 class="font-extrabold mb-0"><?php echo $hitung_santri ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Total Mata Pelajaran</h6>
-                                                <h6 class="font-extrabold mb-0">183.000</h6>
+                                                <h6 class="font-extrabold mb-0"><?php echo $hitung_mapel ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Total Pengajar</h6>
-                                                <h6 class="font-extrabold mb-0">80.000</h6>
+                                                <h6 class="font-extrabold mb-0"><?php echo $hitung_pengajar ?></h6>
                                             </div>
                                         </div>
                                     </div>
