@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 				);
 
 				$this->session->set_userdata($session);
-				redirect(base_url().'admin');
+				redirect(base_url().'admin/');
 			}else{
 				redirect(base_url().'welcome?pesan=gagal');
 			}
