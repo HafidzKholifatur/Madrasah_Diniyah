@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <?= form_open_multipart('admin/edit_profile') ?>
+                        <form class="form form-vertical" action="<?php echo base_url() . 'profile/aksi_edit_profile' ?>" method="post">
                                 <div class="form form-horizontal">
                                     <?php foreach($admin as $ad) { ?> 
                                     <div class="form-body">
@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="hidden" name="id" value="<?php echo $ad->admin_id ?>">
-                                                <input type="text" id="first-name" class="form-control" name="nama" value="<?= $ad->admin_nama ?>">
+                                                <input type="text" id="first-name" class="form-control" name="nama_admin" value="<?= $ad->admin_nama ?>">
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Foto Profile</label>
