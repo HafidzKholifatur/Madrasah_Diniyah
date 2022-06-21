@@ -142,6 +142,13 @@ class Admin extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
+    function tentang(){
+        // $data['santri'] = $this->m_madrasah->get_data('santri')->result();
+        $this->load->view('admin/header');
+        $this->load->view('admin/tentang');
+        $this->load->view('admin/footer');
+    }
+
     function logout(){
         $this->session->sess_destroy();
         redirect(base_url().'welcome?pesan=logout');

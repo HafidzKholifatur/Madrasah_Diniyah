@@ -111,7 +111,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url().'admin/ganti_password' ?>" class='sidebar-link'>
+                            <a href="<?php echo base_url().'admin/tentang' ?>" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>Tentang</span>
                             </a>
