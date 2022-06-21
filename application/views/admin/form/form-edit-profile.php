@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <?= form_open_multipart('admin/edit_profile') ?>
                                 <div class="form form-horizontal">
-                                    <?php foreach($admin as $ad) { ?>
+                                    <?php foreach($admin as $ad) { ?> 
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
