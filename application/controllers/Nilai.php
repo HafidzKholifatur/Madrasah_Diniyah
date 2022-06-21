@@ -29,6 +29,20 @@ class Nilai extends CI_Controller{
     //     $this->load->view('admin/form/form-tambah-nilai', $data);
     //     $this->load->view('admin/footer');
     // }
+    
+    function card_nilai(){
+        $data['title'] = "List Card Nilai | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/table/card-nilai');
+        $this->load->view('admin/footer');
+    }
+
+    function tambah_list(){
+        $data['title'] = "Tambah List Nilai | Madrasah Diniyah Raport";
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-tambah-list');
+        $this->load->view('admin/footer');
+    }
 
     function tambah_nilai(){
         $data['title'] = "Tambah Nilai | Madrasah Diniyah Raport";

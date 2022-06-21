@@ -15,6 +15,9 @@ class Admin extends CI_Controller{
     function index(){ 
         $data['title'] = "Dashboard | Madrasah Diniyah Raport";
         $data['santri'] = $this->m_madrasah->get_data('santri')->result();
+        $data['hitung_santri'] = $this->db->count_all_results('santri');
+        $data['hitung_mapel'] = $this->db->count_all_results('mapel');
+        $data['hitung_pengajar'] = $this->db->count_all_results('pengajar');
         // $data['transaksi'] = $this->db->query("SELECT * FROM transaksi ORDER BY transaksi_id DESC LIMIT 10")->result();
         // $data['kostumer'] = $this->db->query("SELECT * FROM kostumer ORDER BY kostumer_id DESC LIMIT 10")->result();
         // $data['mobil'] = $this->db->query("SELECT * FROM mobil ORDER BY mobil_id DESC LIMIT 10")->result();
