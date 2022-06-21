@@ -21,7 +21,7 @@
                             Tabel Mata Pelajaran
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'mapel/tambah_mapel' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Mata Pelajaran</a>
-                                <a href="<?php echo base_url().'mapel/tabel_mapel' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url().'mapel/cetak_data_mapel' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">

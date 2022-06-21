@@ -87,8 +87,8 @@ class Mapel extends CI_Controller{
         redirect(base_url().'mapel/tabel_mapel'); 
     }
 
-    function logout(){
-        $this->session->sess_destroy();
-        redirect(base_url().'welcome?pesan=logout');
+    function cetak_data_mapel(){
+        $data['mapel'] = $this->m_madrasah->tampil_data_mapel("mapel")->result();
+        $this->load->view('admin/cetak_data/cetak-data-mapel', $data);
     }
 }

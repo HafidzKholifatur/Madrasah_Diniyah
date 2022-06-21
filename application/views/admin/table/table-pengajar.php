@@ -46,7 +46,7 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $p->pengajar_nama ?></td>
                                         <td><?= $p->pengajar_jk ?></td>
-                                        <td><?= $p->pengajar_lahir ?></td>
+                                        <td><?php echo date('d/m/Y', strtotime($p->pengajar_lahir)); ?></td>
                                         <td><?= $p->pengajar_telp ?></td>
                                         <td><?= $p->pengajar_alamat ?></td>
                                         <td class="text-center">

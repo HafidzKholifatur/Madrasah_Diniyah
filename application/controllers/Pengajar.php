@@ -70,7 +70,12 @@ class Pengajar extends CI_Controller{
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $jk = $this->input->post('jk');
+        $tgl_lahir_pengajar = $this->input->post('tgl_lahir_pengajar');
+        $alamat_pengajar = $this->input->post('alamat_pengajar');
         $this->form_validation->set_rules('nama', 'Nama Pengajar', 'required');
+        $this->form_validation->set_rules('tgl_lahir_pengajar', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('alamat_pengajar', 'Alamat ', 'required');
+
 
         if($this->form_validation->run() != false){
             $where = array(
@@ -78,7 +83,9 @@ class Pengajar extends CI_Controller{
             );
             $data = array(
                 'pengajar_nama' => $nama,
-                'pengajar_jk' => $jk
+                'pengajar_jk' => $jk,
+                'pengajar_lahir' => $tgl_lahir_pengajar,
+                'pengajar_alamat' => $alamat_pengajar
             );
             $this->m_madrasah->update_data($where, $data, 'pengajar');
             redirect(base_url().'pengajar/table_pengajar');

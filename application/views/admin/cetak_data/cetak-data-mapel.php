@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Print Data Santri/Santriwati</title>
+    <title>Print Data Mata Pelajaran</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -63,27 +63,21 @@
 
             <div class="teble-responsive">
                 <div class="card-body">
-                    <h4 class="card-title">Data Santri/Santriwati</h4>
+                    <h4 class="card-title">Data Mata Pelajaran</h4>
                     <br>
                     <table class="table table-bordered table-striped table-hover" id="table-datatable">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center">No</th>
-                                <th scope="col">Nama Santri/Santriwati</th>
-                                <th scope="col">Jenis Kelamin</th>
-                                <th scope="col">Tanggal Lahir</th>
-                                <th scope="col">Alamat</th>
+                                <th scope="col">Nama Mata Pelajaran</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($santri as $s) : ?>
+                            foreach ($mapel as $m) : ?>
                                 <tr>
                                     <td class="text-center"><?php echo $no++ ?></td>
-                                    <td><?php echo $s->santri_nama ?></td>
-                                    <td><?php echo $s->santri_jk ?></td>
-                                    <td><?php echo $s->santri_lahir ?></td>
-                                    <td><?php echo $s->santri_alamat ?></td>
+                                    <td><?php echo $m->mapel_nama ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

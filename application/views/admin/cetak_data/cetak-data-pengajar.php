@@ -80,7 +80,7 @@
                             <?php $no = 1;
                             foreach ($pengajar as $p) : ?>
                                 <tr>
-                                    <td><?php echo $no++ ?></td>
+                                    <td class="text-center"><?php echo $no++ ?></td>
                                     <td><?php echo $p->pengajar_nama ?></td>
                                     <td><?php echo $p->pengajar_jk ?></td>
                                     <td><?php echo $p->pengajar_lahir ?></td>
