@@ -61,7 +61,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="first-name-icon">Tanggal Lahir</label>
                                                         <div class="position-relative">
-                                                            <input type="text" name="tgl_lahir" class="form-control" id="first-name-icon" value="<?php echo $s->santri_lahir; ?>">
+                                                            <input type="date" name="tgl_lahir" class="form-control" id="first-name-icon" value="<?php echo $s->santri_lahir; ?>">
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-calendar-event-fill"></i>
                                                             </div>

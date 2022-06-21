@@ -43,43 +43,43 @@ class Admin extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    public function ganti_password(){
+    // public function ganti_password(){
 
-		$this->form_validation->set_rules('old_pass', 'Old Password', 'trim|required|max_length[150]');
-		$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|max_length[150]');
-		$this->form_validation->set_rules('rep_new_pass', 'Repeat Password', 'trim|required|max_length[150]|matches[new_pass]');
+	// 	$this->form_validation->set_rules('old_pass', 'Old Password', 'trim|required|max_length[150]');
+	// 	$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|max_length[150]');
+	// 	$this->form_validation->set_rules('rep_new_pass', 'Repeat Password', 'trim|required|max_length[150]|matches[new_pass]');
 
-		if($this->form_validation->run() == false){
+	// 	if($this->form_validation->run() == false){
 
-			$data['title'] = "Ganti Password";
-			$this->load->view('admin/header',$data);
-			$this->load->view('admin/form/chanage_password');
-			$this->load->view('admin/footer');
-		}else{
+	// 		$data['title'] = "Ganti Password";
+	// 		$this->load->view('admin/header',$data);
+	// 		$this->load->view('admin/form/chanage_password');
+	// 		$this->load->view('admin/footer');
+	// 	}else{
 
-			// Update Data
-			$data = array(
-				'admin_password' => md5($this->input->post('new_pass')),
-			);
-			// Check Old {Password}
-			$result = $this->user_model->Check_Old_Password($this->session->userdata('admin_id'), md5($this->input->post('old_pass')));
-			if($result > 0 AND $result === true ){
-				// updata user data
-				$result = $this->user_model->Update_User_Data($this->session->userdata('admin_id'), $data);
-				if($result > 0){
-					$this->session->set_flashdata('success_msg', 'User Password Change.');
-					return redirect('admin/ganti_password');
-				}else{
-					$this->session->set_flashdata('error_msg', '<b>Error: </b>User Password not Change.');
-					return redirect('admin/ganti_password');
-				}
-			}else{
-				$this->session->set_flashdata('error_msg', '<b>Error: </b>User Old Password not Match.');
-				return redirect('admin/ganti_password');
-			}
-		}
+	// 		// Update Data
+	// 		$data = array(
+	// 			'admin_password' => md5($this->input->post('new_pass')),
+	// 		);
+	// 		// Check Old {Password}
+	// 		$result = $this->user_model->Check_Old_Password($this->session->userdata('admin_id'), md5($this->input->post('old_pass')));
+	// 		if($result > 0 AND $result === true ){
+	// 			// updata user data
+	// 			$result = $this->user_model->Update_User_Data($this->session->userdata('admin_id'), $data);
+	// 			if($result > 0){
+	// 				$this->session->set_flashdata('success_msg', 'User Password Change.');
+	// 				return redirect('admin/ganti_password');
+	// 			}else{
+	// 				$this->session->set_flashdata('error_msg', '<b>Error: </b>User Password not Change.');
+	// 				return redirect('admin/ganti_password');
+	// 			}
+	// 		}else{
+	// 			$this->session->set_flashdata('error_msg', '<b>Error: </b>User Old Password not Match.');
+	// 			return redirect('admin/ganti_password');
+	// 		}
+	// 	}
 		
-	}
+	// }
     
 
     // public function ganti_password(){
