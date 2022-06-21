@@ -19,7 +19,7 @@
     <!-- Basic Vertical form layout section start -->
     <section id="basic-vertical-layouts">
         <div class="row match-height">
-            <div class="col-md-12 col-12">
+            <div class="col-md-6 col-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Tambah Data Nilai Pengajian</h4>
@@ -41,81 +41,28 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php foreach($mapel as $m) { ?>
-                                        <div class="col-4">
+                                        <div class="col-12 mb-3">
                                             <div class="form-group has-icon-left">
-                                                <input type="hidden" name="mapel_id[]" value="<?php echo $m->mapel_id ?>">
-                                                <label for="first-name-icon"><?php echo $m->mapel_nama ?></label>
+                                                <label for="first-name-icon">Pilih Mata Pelajaran</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon" name="nilai[]">
+                                                    <select class="form-select form-control" id="basicSelect" name="mapel_id">
+                                                        <?php foreach($mapel as $m) { ?>
+                                                        <option value="<?php echo $m->mapel_id ?>"><?php echo $m->mapel_nama ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php } ?>
-                                        <!-- <div class="col-4">
+                                        <div class="col-12">
                                             <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 2</label>
+                                                <!-- <input type="hidden" name="mapel_id[]" value="<?php echo $m->mapel_id ?>"> -->
+                                                <label for="first-name-icon">Nilai</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
+                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon" name="nilai">
                                                 </div>
+                                                <?php echo form_error('mapel'); ?>
                                             </div>
                                         </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 3</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 4</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 5</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 6</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 7</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 8</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Mapel 9</label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon">
-                                                </div>
-                                            </div>
-                                        </div> -->
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
