@@ -22,7 +22,7 @@
                             Tabel Nilai
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'nilai/tambah_nilai' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Nilai</a>
-                                <a href="<?php echo base_url().'nilai/tabel_nilai' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url().'nilai/cetak_data_nilai' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">

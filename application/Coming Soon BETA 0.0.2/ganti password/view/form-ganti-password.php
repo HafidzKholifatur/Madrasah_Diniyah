@@ -27,13 +27,14 @@
                     <div class="card-content">
                         <div class="card-body">
                             <?php echo $this->session->flashdata('pesan'); ?>
-                            <form class="form form-vertical" action="<?php echo base_url() . 'admin/proses_ganti_password' ?>" method="post">
+                            <form class="form form-vertical" action="<?php echo base_url() . 'admin/ganti_password' ?>" method="post">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Password Lama</label>
                                                 <div class="position-relative">
+                                                    <input type="hidden" name="id" value="<?php echo $m->mapel_id ?>">
                                                     <input type="password" name="pass_lama" class="form-control" id="pass_lama">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-lock"></i>
@@ -58,7 +59,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Ketik Ulang Password Baru</label>
                                                 <div class="position-relative">
-                                                    <input type="password" name="ulang_pass_baru" class="form-control" id="ulang_pass_baru" >
+                                                    <input type="password" name="ulang_pass_baru" class="form-control" id="ulang_pass_baru">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-key"></i>
                                                     </div>

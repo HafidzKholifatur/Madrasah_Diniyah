@@ -121,6 +121,6 @@ class Santri extends CI_Controller
     function cetak_data_santri()
     {
         $data['santri'] = $this->m_madrasah->tampil_data("santri")->result();
-        $this->load->view('admin/cetak_data/cetak-data-pengajar', $data);
+        $this->load->view('admin/cetak_data/cetak-data-santri', $data);
     }
 }
