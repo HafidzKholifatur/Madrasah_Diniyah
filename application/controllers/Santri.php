@@ -109,6 +109,10 @@ class Santri extends CI_Controller
         $where = array(
             'santri_id' => $id
         );
+        $sid = array(
+            'id_santri' => $id
+        );
+        $this->m_madrasah->delete_data($sid, 'penilaian');
         $this->m_madrasah->delete_data($where, 'santri');
         redirect(base_url() . 'santri/tabel_santri');
 
