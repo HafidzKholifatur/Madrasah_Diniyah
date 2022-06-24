@@ -53,7 +53,7 @@
                                             <a href="<?php echo base_url().'pengajar/pengajar_edit/'.$p->pengajar_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit
                                             </a>
-                                            <a href="<?php echo base_url().'pengajar/pengajar_hapus/'.$p->pengajar_id; ?>" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'pengajar/pengajar_hapus/'.$p->pengajar_id; ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-trash"></span> Hapus
                                             </a>
                                         </td>
