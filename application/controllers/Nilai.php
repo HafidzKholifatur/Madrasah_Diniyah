@@ -1,25 +1,19 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Nilai extends CI_Controller
-{
+class Nilai extends CI_Controller{
 
     function __construct()
     {
         parent::__construct();
         // mengecek login
-        if ($this->session->userdata('status') != "login") {
-            redirect(base_url() . 'welcome?pesan=belumlogin');
+        if($this->session->userdata('status') != "login"){
+            redirect(base_url().'welcome?pesan=belumlogin');
         }
     }
 
-<<<<<<< HEAD
     // Fungsi Untuk Menampilkan Isi Dari Table Penilaian Secara Keseluruhan
     function tabel_nilai($id){
-=======
-    function tabel_nilai()
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $data['title'] = "Table Nilai | Madrasah Diniyah Raport";
         $kategori_id = array(
             'kategori_id' => $id
@@ -35,24 +29,9 @@ class Nilai extends CI_Controller
         $this->load->view('admin/table/table-nilai', $data);
         $this->load->view('admin/footer');
     }
-<<<<<<< HEAD
     
     // Fungsi Untuk Menampilkan Card Nilai Per-Kategori
     function card_nilai(){
-=======
-
-    // function tambah_nilai(){
-    //     $data['title'] = "Tambah Nilai | Madrasah Diniyah Raport";
-    //     $data['santri'] = $this->m_madrasah->get_data('santri')->result();
-    //     $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
-    //     $this->load->view('admin/header', $data);
-    //     $this->load->view('admin/form/form-tambah-nilai', $data);
-    //     $this->load->view('admin/footer');
-    // }
-
-    function card_nilai()
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $data['title'] = "List Card Nilai | Madrasah Diniyah Raport";
         $data['kategori'] = $this->m_madrasah->get_data('kategori')->result();
         $this->load->view('admin/header', $data);
@@ -60,7 +39,6 @@ class Nilai extends CI_Controller
         $this->load->view('admin/footer');
     }
 
-<<<<<<< HEAD
     // Fungsi Untuk Menghapus Card Kategori Nilai
     function hapus_card($id){
         $where = array(
@@ -117,17 +95,12 @@ class Nilai extends CI_Controller
 
     // Fungsi Untuk Menampilkan Form Tambah List Kategori Baru
     function tambah_list(){
-=======
-    function tambah_list()
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $data['title'] = "Tambah List Nilai | Madrasah Diniyah Raport";
         $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-tambah-list');
         $this->load->view('admin/footer');
     }
 
-<<<<<<< HEAD
     // Fungsi Untuk Aksi Menambah List Kategori Baru
     function aksi_tambah_list(){
         $nama = $this->input->post('nama');
@@ -191,10 +164,6 @@ class Nilai extends CI_Controller
 
     // Fungsi Untuk Tampilan Tambah Data Nilai Berdasarkan kategori_id
     function tambah_nilai($id){
-=======
-    function tambah_nilai()
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $data['title'] = "Tambah Nilai | Madrasah Diniyah Raport";
         $data['santri'] = $this->m_madrasah->get_data('santri')->result();
         $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
@@ -212,14 +181,9 @@ class Nilai extends CI_Controller
         $this->load->view('admin/footer');
     }
 
-<<<<<<< HEAD
     // Fungsi Untuk Aksi Tambah Data Nilai
     function aksi_tambah_nilai(){ 
         $kategori_id = $this->input->post('kategori_id');
-=======
-    function aksi_tambah_nilai()
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $santri = $this->input->post('santri_id');
         $mapel_id = $this->input->post('mapel_id');
         $nilai = $this->input->post('nilai');
@@ -228,7 +192,7 @@ class Nilai extends CI_Controller
         // $this->form_validation->set_rules('santri', 'Santri', 'trim|required|is_unique[penilaian.id_santri]');
         // $this->form_validation->set_rules('mapel', 'Mapel', 'trim|required|is_unique[penilaian.id_mapel]');
 
-        if ($this->form_validation->run() != false) {
+        if($this->form_validation->run() != false){
             $data = array(
                 'id_kategori' => $kategori_id,
                 'id_santri' => $santri,
@@ -237,18 +201,12 @@ class Nilai extends CI_Controller
             );
             
             $this->m_madrasah->insert_data($data, 'penilaian');
-<<<<<<< HEAD
             redirect(base_url().'nilai/tabel_nilai/'.$kategori_id);
         }else{
-=======
-            redirect(base_url() . 'nilai/tabel_nilai');
-        } else {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
             $this->load->view('admin/header');
             $this->load->view('admin/form/form-tambah-nilai/'.$kategori_id);
             $this->load->view('admin/footer');
         }
-<<<<<<< HEAD
         
     }
 
@@ -393,24 +351,12 @@ class Nilai extends CI_Controller
     }
     
 
-=======
-
-        var_dump($data);
-    }
-
-    function cetak_data_nilai()
-    {
-        $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id);")->result();
-        $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
-    }
-
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
     // function aksi_tambah_nilai(){
     //     $santri = $this->input->post('santri_id');
     //     $mapel_id = $this->input->post('mapel_id');
     //     $nilai = $this->input->post('nilai');
 
-
+        
     //     var_dump($nilai);
 
     //     var_dump($mapel_id);
@@ -425,7 +371,7 @@ class Nilai extends CI_Controller
     //         $nil;
     //     }
 
-
+        
     //     ========================================================
 
     //     CARI CARA GIMANA $DATA MASUKIN SEMUA DATA, BUKAN CUMA 1
@@ -447,7 +393,7 @@ class Nilai extends CI_Controller
     //     $this->m_madrasah->insert_data($dat, 'penilaian');
     //     redirect(base_url().'nilai/tabel_nilai');
 
-
+        
     //     if(){
     //         $data = array(
     //             'santri_id' => $santri,
@@ -497,9 +443,8 @@ class Nilai extends CI_Controller
         redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri_id);
     }
 
-    function logout()
-    {
+    function logout(){
         $this->session->sess_destroy();
-        redirect(base_url() . 'welcome?pesan=logout');
+        redirect(base_url().'welcome?pesan=logout');
     }
 }

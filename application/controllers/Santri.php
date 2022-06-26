@@ -103,13 +103,8 @@ class Santri extends CI_Controller
         }
     }
 
-<<<<<<< HEAD
     function santri_hapus($id){
-=======
 
-    function santri_hapus($id)
-    {
->>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
         $where = array(
             'santri_id' => $id
         );
