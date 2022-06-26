@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_tambah_nilai' ?>">
+                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_tambah_nilai_card' ?>">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12 mb-3">

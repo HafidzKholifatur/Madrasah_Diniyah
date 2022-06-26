@@ -23,16 +23,16 @@
                     <div class="card-header">
                         <h4 class="card-title">Tambah List Nilai</h4>
                     </div>
-
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical" action="<?php echo base_url() . 'santri/aksi_tambah_santri' ?>" method="post">
+                            <form class="form form-vertical" action="<?php echo base_url() . 'nilai/aksi_tambah_list' ?>" method="post">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Nama List Nilai</label>
                                                 <div class="position-relative">
+                                                    <input type="hidden" name="tgl_buat" value="<?php echo date('Y-m-d') ?>">
                                                     <input type="text" name="nama" class="form-control" placeholder="Masukan Nama List Nilai" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-list"></i>

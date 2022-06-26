@@ -15,61 +15,36 @@
             </div>
         </div>
         <div class="col-12 col-md-12 text-end">
-        <a href="<?php echo base_url().'nilai/tambah_list' ?>" class="btn btn-primary btn-sm mb-3 justify-content-end">Tambah List Nilai Baru</a>
+        <a href="<?php echo base_url().'nilai/tambah_list' ?>" class="btn btn-primary mb-3 justify-content-end"><i class="bi bi-plus"></i> Tambah List Nilai Baru</a>
         </div>
     </div>
     <div class="page-content">
         <section class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
+                    <?php
+                        $no = 1; 
+                        foreach($kategori as $k) {
+                    ?>
                     <div class="col-6 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <h4 class="card-title">Penilaian ke - <?php echo "1" ?></h4>
+                                    <h3 class="">Penilaian ke - <?= $no++; ?></h3>
+                                    <hr>
+                                    <h4 class="card-title"><?= $k->nama_kategori ?></h4>
                                     <p class="card-text">
-                                        Dibuat Pada Tanggal
+                                        Dibuat Pada Tanggal <b><?= date('d/m/Y', strtotime($k->tgl_dibuat)); ?></b>
                                     </p>
                                     <div class="form-actions d-flex justify-content-start">
-                                        <button type="submit" class="btn btn-primary me-1">Lihat</button>
-                                        <!-- <button type="reset" class="btn btn-light-primary">Cancel</button> -->
+                                        <a href="<?php echo base_url().'nilai/tabel_nilai/'.$k->kategori_id; ?>" class="btn btn-primary me-2"><i class="bi bi-eye"></i> Lihat Detail</a>
+                                        <a onClick="konfirmasi()" href="<?php echo base_url().'nilai/hapus_card/'.$k->kategori_id; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <h4 class="card-title">Penilaian ke - <?php echo "1" ?></h4>
-                                    <p class="card-text">
-                                        Dibuat Pada Tanggal
-                                    </p>
-                                    <div class="form-actions d-flex justify-content-start">
-                                        <button type="submit" class="btn btn-primary me-1">Lihat</button>
-                                        <!-- <button type="reset" class="btn btn-light-primary">Cancel</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <h4 class="card-title">Penilaian ke - <?php echo "1" ?></h4>
-                                    <p class="card-text">
-                                        Dibuat Pada Tanggal
-                                    </p>
-                                    <div class="form-actions d-flex justify-content-start">
-                                        <button type="submit" class="btn btn-primary me-1">Lihat</button>
-                                        <!-- <button type="reset" class="btn btn-light-primary">Cancel</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>

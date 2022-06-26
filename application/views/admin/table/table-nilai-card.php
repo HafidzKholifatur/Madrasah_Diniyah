@@ -1,8 +1,8 @@
-            <div class="page-heading">
+<div class="page-heading">
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Table Penilaian</h3>
+                            <h3>Table Penilaian Santri</h3>
                             <p class="text-subtitle text-muted">Tabel yang berisi data penilaian dari mata pelajaran
                                 yang di pengajian</p>
                         </div>
@@ -19,13 +19,10 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            <a href="<?php echo base_url().'nilai/card_nilai/' ?>" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
+                            <a href="<?php echo base_url().'nilai/list_santri/'.$kate ?>" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
                             <div class="float-lg-end">
-                                <!-- <input type="text"   value="<?php echo $kate ?>">   -->
-                                <!-- <a href="<?php echo base_url().'nilai/tambah_nilai/'?>" class="btn btn-sm btn-success me-1">Tambah Nilai</a> -->
                                 <a href="<?php echo base_url().'nilai/tambah_nilai/'.$kate ?>" class="btn btn-success"><i class="bi bi-plus"></i> Tambah Nilai</a>
                                 <a href="<?php echo base_url().'nilai/tabel_nilai' ?>" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
-                                <a href="<?php echo base_url().'nilai/list_santri/'.$kate ?>" class="btn btn-info float-lg-end"><i class="bi bi-back"></i> Card Mode</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -52,10 +49,10 @@
                                         <td><?=$p->mapel_nama ?></td>
                                         <td><?=$p->nilai ?></td>
                                         <td class="text-center">
-                                            <a href="<?php echo base_url().'nilai/nilai_edit/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-warning btn-sm">
+                                            <a href="<?php echo base_url().'nilai/nilai_edit_card/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-warning btn-sm">
                                                 <i class="bi bi-pencil-square"></i> Edit
                                             </a>
-                                            <a href="<?php echo base_url().'nilai/nilai_hapus/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'nilai/nilai_hapus_card/'.$p->id_kategori.'/'.$p->penilaian_id.'/'.$p->id_santri ?>" class="btn btn-danger btn-sm">
                                                 <i class="bi bi-trash"></i> Hapus
                                             </a>
                                         </td>

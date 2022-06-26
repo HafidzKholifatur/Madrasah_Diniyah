@@ -26,21 +26,20 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_tambah_nilai' ?>">
+                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_edit_nilai' ?>">
                                 <div class="form-body">
+                                    <?php foreach($penilaian as $p) { ?>
                                     <div class="row">
                                         <div class="col-12 mb-3">
                                             <div class="form-group has-icon-left">
                                                 <input type="hidden" name="kategori_id" value="<?php echo $kate ?>">
-                                                <?php echo form_error('kategori_id'); ?>
+                                                <input type="hidden" name="id" value="<?php echo $p->penilaian_id ?>">
+                                                <!-- <?php echo $p->penilaian_id ?> -->
                                                 <label for="first-name-icon">Pilih Santri/Santriwati</label>
                                                 <div class="position-relative">
-                                                    <select class="form-select form-control" id="basicSelect" name="santri_id">
-                                                        <?php foreach($santri as $s) { ?>
-                                                        <option value="<?php echo $s->santri_id ?>"><?php echo $s->santri_nama ?></option>
-                                                        <?php } ?>
+                                                    <select class="form-select form-control" id="basicSelect" name="santri_id" disabled>
+                                                        <option value="<?php echo $p->id_santri ?>"><?php echo $p->santri_nama ?></option>
                                                     </select>
-                                                    <?php echo form_error('santri'); ?>
                                                 </div> 
                                             </div>
                                         </div>
@@ -48,31 +47,27 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Pilih Mata Pelajaran</label>
                                                 <div class="position-relative">
-                                                    <select class="form-select form-control" id="basicSelect" name="mapel_id">
-                                                        <?php foreach($mapel as $m) { ?>
-                                                        <option value="<?php echo $m->mapel_id ?>"><?php echo $m->mapel_nama ?></option>
-                                                        <?php } ?>
+                                                    <select class="form-select form-control" id="basicSelect" name="mapel_id" disabled>
+                                                        <option value="<?php echo $p->id_mapel ?>"><?php echo $p->mapel_nama ?></option>
                                                     </select>
-                                                    <?php echo form_error('mapel'); ?>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
-                                                <!-- <input type="hidden" name="mapel_id[]" value="<?php echo $m->mapel_id ?>"> -->
                                                 <label for="first-name-icon">Nilai</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon" name="nilai" required>
+                                                    <input type="text" class="form-control" value="<?php echo $p->nilai ?>" placeholder="Masukan Nilai" id="first-name-icon" name="nilai" required>
                                                 </div>
                                                 <?php echo form_error('nilai'); ?>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-success me-1 mb-1"><i class="bi bi-save"></i> Simpan</button>
-                                            <!-- <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button> -->
-                                            <a href="<?php echo base_url().'nilai/tabel_nilai/'.$kate ?>" class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left"></i> Kembali</a>
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button> 
+                                            <a href="<?php echo base_url().'nilai/tabel_nilai/'.$kate ?>" class="btn btn-warning me-1 mb-1">Kembali</a>
                                         </div>
                                     </div>
+                                    <?php } ?>
                                 </div>
                             </form>
                         </div>

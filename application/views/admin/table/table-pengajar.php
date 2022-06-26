@@ -31,7 +31,7 @@
                                         <th>No</th>
                                         <th>Nama Pengajar</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Tanggal Lahir</th>
+                                        <th>Tanggal Lahir</th> 
                                         <th>No Telpon</th>
                                         <th>Alamat</th>
                                         <th class="text-center">Aksi</th>
