@@ -21,11 +21,16 @@
                         <div class="card-header">
                             <a href="<?php echo base_url().'nilai/card_nilai/' ?>" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
                             <div class="float-lg-end">
+<<<<<<< HEAD
                                 <!-- <input type="text"   value="<?php echo $kate ?>">   -->
                                 <!-- <a href="<?php echo base_url().'nilai/tambah_nilai/'?>" class="btn btn-sm btn-success me-1">Tambah Nilai</a> -->
                                 <a href="<?php echo base_url().'nilai/tambah_nilai/'.$kate ?>" class="btn btn-success"><i class="bi bi-plus"></i> Tambah Nilai</a>
                                 <a href="<?php echo base_url().'nilai/tabel_nilai' ?>" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
                                 <a href="<?php echo base_url().'nilai/list_santri/'.$kate ?>" class="btn btn-info float-lg-end"><i class="bi bi-back"></i> Card Mode</a>
+=======
+                                <a href="<?php echo base_url().'nilai/tambah_nilai' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Nilai</a>
+                                <a href="<?php echo base_url().'nilai/cetak_data_nilai' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+>>>>>>> 30a29fa0aa0369477f767b20176fc265fe8512b9
                             </div>
                         </div>
                         <div class="card-body">

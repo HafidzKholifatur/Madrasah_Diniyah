@@ -51,7 +51,7 @@
                                             <a href="<?php echo base_url().'santri/santri_edit/'.$s->santri_id; ?>" class="btn btn-warning btn-sm">
                                                 <span class="glyphicon glyphicon-plus"></span> Edit
                                             </a>
-                                            <a href="<?php echo base_url().'santri/santri_hapus/'.$s->santri_id; ?>" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'santri/santri_hapus/'.$s->santri_id; ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-trash"></span> Hapus
                                             </a>
                                         </td>

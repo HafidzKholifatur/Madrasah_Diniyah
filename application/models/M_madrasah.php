@@ -35,4 +35,8 @@ class M_madrasah extends CI_Model{
     public function tampil_data_mapel(){
         return $this->db->get('mapel');
     }
+
+    public function tampil_data_nilai(){
+        return $this->db->get('penilaian');
+    }
 }

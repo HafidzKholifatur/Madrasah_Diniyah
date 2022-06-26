@@ -33,7 +33,7 @@
                                         <h2><?php echo $this->session->userdata('nama'); ?></h2>
                                         <h5 class="card-text text-muted mb-3">Administrator</h5>
                                         <a href="<?php echo base_url() . 'admin/edit_profile/' . $this->session->userdata('admin_id'); ?>" class="btn btn-success me-1">Edit Profile</a>
-                                        <a href="#" class="btn btn-info ">Ganti Password</a>
+                                        <a href="<?php echo base_url() . 'admin/ganti_password'; ?>" class="btn btn-info">Ganti Password</a>
                                     </div>
                                 </div>
                             </div>

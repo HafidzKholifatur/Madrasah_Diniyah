@@ -83,8 +83,17 @@ class Mapel extends CI_Controller{
         $where = array(
             'mapel_id' => $id
         );
+        $mid = array(
+            'id_mapel' => $id
+        );
+        $this->m_madrasah->delete_data($mid, 'penilaian');
         $this->m_madrasah->delete_data($where, 'mapel');
         redirect(base_url().'mapel/tabel_mapel'); 
+
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>alert('Data berhasil dihapus');</script>";
+        }
+        echo "<script>window.location='" . site_url('mapel') . "';</script>";
     }
 
     function cetak_data_mapel(){
