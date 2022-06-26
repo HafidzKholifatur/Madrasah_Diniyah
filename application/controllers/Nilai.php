@@ -52,6 +52,11 @@ class Nilai extends CI_Controller{
         $this->m_madrasah->delete_data($where, 'penilaian');
         $this->m_madrasah->delete_data($wh, 'kategori');
         redirect(base_url().'nilai/card_nilai');
+
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>alert('Data berhasil dihapus');</script>";
+        }
+        echo "<script>window.location='" . site_url('nilai') . "';</script>";
     }
 
     function table_per_card($kategori_id, $id){
@@ -160,6 +165,11 @@ class Nilai extends CI_Controller{
 
         $this->m_madrasah->delete_data($where, 'penilaian');
         redirect(base_url().'nilai/list_santri/'.$kate);
+
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>alert('Data berhasil dihapus');</script>";
+        }
+        echo "<script>window.location='" . site_url('nilai') . "';</script>";
     }
 
     // Fungsi Untuk Tampilan Tambah Data Nilai Berdasarkan kategori_id
@@ -425,6 +435,11 @@ class Nilai extends CI_Controller{
 
         $this->m_madrasah->delete_data($where, 'penilaian');
         redirect(base_url().'nilai/tabel_nilai/'.$kategori_id);
+
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>alert('Data berhasil dihapus');</script>";
+        }
+        echo "<script>window.location='" . site_url('nilai') . "';</script>";
     }
 
     function nilai_hapus_card($kategori_id, $id, $santri_id){
@@ -441,6 +456,12 @@ class Nilai extends CI_Controller{
 
         $this->m_madrasah->delete_data($where, 'penilaian');
         redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri_id);
+    }
+
+    function cetak_data_nilai()
+    {
+        $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) ;")->result();
+        $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
     }
 
     function logout(){

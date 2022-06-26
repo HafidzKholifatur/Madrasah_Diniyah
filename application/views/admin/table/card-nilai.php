@@ -38,7 +38,7 @@
                                     </p>
                                     <div class="form-actions d-flex justify-content-start">
                                         <a href="<?php echo base_url().'nilai/tabel_nilai/'.$k->kategori_id; ?>" class="btn btn-primary me-2"><i class="bi bi-eye"></i> Lihat Detail</a>
-                                        <a onClick="konfirmasi()" href="<?php echo base_url().'nilai/hapus_card/'.$k->kategori_id; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
+                                        <a onclick="return confirm('Apakah anda ingin menghapus?')" href="<?php echo base_url().'nilai/hapus_card/'.$k->kategori_id; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                                     </div>
                                 </div>
                             </div>

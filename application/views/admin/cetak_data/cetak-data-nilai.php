@@ -69,6 +69,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th hidden></th>
                                 <th>Nama Santri/Santriwati</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Nilai</th>
@@ -80,10 +81,11 @@
                             foreach ($penilaian as $p) {
                             ?>
                                 <tr>
-                                    <td><?php echo $no++ ?></td>
-                                    <td><?php echo $p->santri_nama ?></td>
-                                    <td><?php echo $p->mapel_nama ?></td>
-                                    <td><?php echo $p->nilai ?></td>
+                                    <td><?= $no++ ?></td>
+                                    <td hidden><?= $p->id_kategori ?></td>
+                                    <td><?= $p->santri_nama ?></td>
+                                    <td><?= $p->mapel_nama ?></td>
+                                    <td><?= $p->nilai ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
