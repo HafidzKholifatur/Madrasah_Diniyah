@@ -22,7 +22,7 @@
                             <a href="<?php echo base_url().'nilai/list_santri/'.$kate ?>" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'nilai/tambah_nilai/'.$kate ?>" class="btn btn-success"><i class="bi bi-plus"></i> Tambah Nilai</a>
-                                <a href="<?php echo base_url().'nilai/tabel_nilai' ?>" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
+                                <a href="<?php echo base_url().'nilai/cetak_data_nilai/' ?>" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -52,7 +52,7 @@
                                             <a href="<?php echo base_url().'nilai/nilai_edit_card/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-warning btn-sm">
                                                 <i class="bi bi-pencil-square"></i> Edit
                                             </a>
-                                            <a href="<?php echo base_url().'nilai/nilai_hapus_card/'.$p->id_kategori.'/'.$p->penilaian_id.'/'.$p->id_santri ?>" class="btn btn-danger btn-sm">
+                                            <a href="<?php echo base_url().'nilai/nilai_hapus_card/'.$p->id_kategori.'/'.$p->penilaian_id.'/'.$p->id_santri ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
                                                 <i class="bi bi-trash"></i> Hapus
                                             </a>
                                         </td>
