@@ -21,7 +21,7 @@ class Nilai extends CI_Controller{
         foreach($kategori_id as $kate){
             $data['kate'] = $kate;
         }
-        
+
         foreach ($kategori_id as $kt_id) {
             $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) WHERE id_kategori = '$kt_id';")->result();
         }

@@ -110,8 +110,8 @@
                             </ul>
                         </li>
 
-                        <li class="sidebar-item">
-                            <a href="<?php echo base_url().'admin/tentang' ?>" class='sidebar-link'>
+                        <li class="sidebar-item <?= active_menu('tentang') ?>">
+                            <a href="<?php echo base_url() . 'tentang/tentang' ?>" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>Tentang</span>
                             </a>
@@ -209,12 +209,12 @@
                                     <li>
                                         <h6 class="dropdown-header">Hello, <?php echo $this->session->userdata('nama'); ?></h6>
                                     </li>
-                                    <!-- <li><a class="dropdown-item" href="<?php echo base_url().'profile/myprofile' ?>"><i class="icon-mid bi bi-person me-2"></i> My
+                                    <!-- <li><a class="dropdown-item" href="<?php echo base_url() . 'profile/myprofile' ?>"><i class="icon-mid bi bi-person me-2"></i> My
                                             Profile</a></li> -->
                                     <!-- <li>
                                         <hr class="dropdown-divider">
                                     </li> -->
-                                    <li><a class="dropdown-item" href="<?php echo base_url().'admin/logout'?>"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url() . 'admin/logout' ?>"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </div>
