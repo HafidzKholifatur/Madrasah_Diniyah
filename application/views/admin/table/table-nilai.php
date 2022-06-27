@@ -24,7 +24,7 @@
                     <!-- <input type="text"   value="<?php echo $kate ?>">   -->
                     <!-- <a href="<?php echo base_url() . 'nilai/tambah_nilai/' ?>" class="btn btn-sm btn-success me-1">Tambah Nilai</a> -->
                     <a href="<?php echo base_url() . 'nilai/tambah_nilai/' . $kate ?>" class="btn btn-success"><i class="bi bi-plus"></i> Tambah Nilai</a>
-                    <a href="<?php echo base_url() . 'nilai/cetak_data_nilai/' ?>" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
+                    <a href="<?php echo base_url() . 'nilai/cetak_data_nilai/' ?>" target="_blank" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
                     <a href="<?php echo base_url() . 'nilai/list_santri/' . $kate ?>" class="btn btn-info float-lg-end"><i class="bi bi-back"></i> Card Mode</a>
                 </div>
             </div>
