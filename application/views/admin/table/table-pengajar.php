@@ -21,7 +21,7 @@
                             Tabel Pengajar
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Pengajar</a>
-                                <a href="<?php echo base_url().'pengajar/cetak_data_pengajar' ?>" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url().'pengajar/cetak_data_pengajar' ?>" target="_blank" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
