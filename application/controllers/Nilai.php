@@ -70,7 +70,7 @@ class Nilai extends CI_Controller{
         );
 
         foreach($where as $wh){
-            $data['wh'] = $wh;
+            $data['wh'] = $wh; 
         }
 
         foreach($kategori_id as $kate){
@@ -248,7 +248,7 @@ class Nilai extends CI_Controller{
         $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-edit-nilai', $data);
         $this->load->view('admin/footer');
-    }
+    } 
 
     // Fungsi Untuk Aksi Edit Data Nilai
     function aksi_edit_nilai(){ 
@@ -331,10 +331,10 @@ class Nilai extends CI_Controller{
             );
 
             // $kat = array(
-            //     'kategori_id' => $kat
+            //     'kategori_id' => $kategori_id
             // );
             // $san = array(
-            //     'santri_id' => $san
+            //     'santri_id' => $santri_id
             // );
 
             // foreach($kat as $kate){
@@ -346,7 +346,7 @@ class Nilai extends CI_Controller{
             // }
             
             $this->m_madrasah->update_data($where, $data, 'penilaian');
-            redirect(base_url().'nilai/table_per_card/');
+            redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri_id);
         }else{
             $where = array(
                 'penilaian_id' => $id
