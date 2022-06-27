@@ -24,9 +24,9 @@
                     <div class="card-header">
                         <h4 class="card-title">Tambah Edit Nilai Pengajian</h4>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content"> 
                         <div class="card-body">
-                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_edit_nilai_card' ?>">
+                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_edit_nilai_card/'?>">
                                 <div class="form-body">
                                     <?php foreach($penilaian as $p) { ?>
                                     <div class="row">

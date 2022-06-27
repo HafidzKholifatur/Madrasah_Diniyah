@@ -48,10 +48,13 @@
                                         <td><?=$p->santri_nama ?></td>
                                         <td><?=$p->mapel_nama ?></td>
                                         <td><?=$p->nilai ?></td>
-                                        <td class="text-center">
+                                        <td class="text-center"> 
                                             <a href="<?php echo base_url().'nilai/nilai_edit_card/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-warning btn-sm">
                                                 <i class="bi bi-pencil-square"></i> Edit
                                             </a>
+                                            <!-- <a href="<?php echo base_url().'nilai/nilai_edit_card/'.$p->id_kategori.'/'.$p->penilaian_id ?>" class="btn btn-warning btn-sm">
+                                                <i class="bi bi-pencil-square"></i> Edit
+                                            </a> -->
                                             <a href="<?php echo base_url().'nilai/nilai_hapus_card/'.$p->id_kategori.'/'.$p->penilaian_id.'/'.$p->id_santri ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
                                                 <i class="bi bi-trash"></i> Hapus
                                             </a>
