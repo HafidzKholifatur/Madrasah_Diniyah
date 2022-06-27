@@ -40,7 +40,7 @@
                                     </p> -->
                                     <div class="form-actions d-flex justify-content-start">
                                         <a href="<?php echo base_url().'nilai/table_per_card/'.$p->id_kategori.'/'.$p->id_santri ?>" class="btn btn-primary me-1"><i class="bi bi-eye"></i> Lihat Detail</a>
-                                        <a href="<?php echo base_url().'nilai/cetak_data_nilai/'.$p->id_kategori.'/'.$p->id_santri ?>" target="_blank" class="btn btn-info me-1"><i class="bi bi-printer"></i> Cetak Data</a>
+                                        <a href="<?php echo base_url().'nilai/cetak_data_nilai_card/'.$p->id_kategori.'/'.$p->id_santri ?>" target="_blank" class="btn btn-info me-1"><i class="bi bi-printer"></i> Cetak Data</a>
                                         <a href="<?php echo base_url().'nilai/hapus_card_santri/'.$p->id_kategori.'/'.$p->id_santri ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                                     </div>
                                 </div>

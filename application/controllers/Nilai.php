@@ -464,6 +464,12 @@ class Nilai extends CI_Controller{
         $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
     }
 
+    function cetak_data_nilai_card()
+    {
+        $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) ;")->result();
+        $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
+    }
+
     function logout(){
         $this->session->sess_destroy();
         redirect(base_url().'welcome?pesan=logout');

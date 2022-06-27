@@ -22,7 +22,7 @@
                             <a href="<?php echo base_url().'nilai/list_santri/'.$kate ?>" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
                             <div class="float-lg-end">
                                 <a href="<?php echo base_url().'nilai/tambah_nilai/'.$kate ?>" class="btn btn-success"><i class="bi bi-plus"></i> Tambah Nilai</a>
-                                <a href="<?php echo base_url().'nilai/cetak_data_nilai/' ?>" target="_blank" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
+                                <a href="<?php echo base_url().'nilai/cetak_data_nilai_card/' ?>" target="_blank" class="btn btn-primary me-1"><i class="bi bi-printer-fill"></i> Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
