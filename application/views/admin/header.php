@@ -101,78 +101,31 @@
                                 <span>Data Nilai</span>
                             </a>
                             <ul class="submenu ">
-                                <li class="submenu-item ">
+                            <li class="submenu-item ">
+                                    <a href="<?php echo base_url() . 'nilai/card_nilai' ?>">List Nilai</a>
+                                </li>
+                                <!-- <li class="submenu-item ">
                                     <a href="<?php echo base_url() . 'nilai/tabel_nilai' ?>">Tabel Nilai</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="<?php echo base_url() . 'nilai/tambah_nilai' ?>">Tambah Data Nilai</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
 
-                        <li class="sidebar-item <?= active_menu('tentang') ?>">
-                            <a href="<?php echo base_url() . 'tentang/tentang' ?>" class='sidebar-link'>
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url().'admin/tentang' ?>" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>Tentang</span>
                             </a>
                         </li>
 
-                        <!-- <li class="sidebar-title">Data Madrasah</li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-hexagon-fill"></i>
-                                <span>Data Nilai</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="form-element-input.html">Input</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-input-group.html">Input Group</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-select.html">Select</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-radio.html">Radio</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-checkbox.html">Checkbox</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-textarea.html">Textarea</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item  ">
-                            <a href="form-layout.html" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Form Layout</span>
+                        <li class="sidebar-item <?= active_menu('kontak') ?>">
+                            <a href="<?php echo base_url() . 'admin/kontak' ?>" class='sidebar-link'>
+                                <i class="bi bi-chat-square-dots-fill"></i>
+                                <span>Kontak</span>
                             </a>
                         </li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-pen-fill"></i>
-                                <span>Form Editor</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="form-editor-quill.html">Quill</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-editor-ckeditor.html">CKEditor</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-editor-summernote.html">Summernote</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-editor-tinymce.html">TinyMCE</a>
-                                </li>
-                            </ul>
-                        </li> -->
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -209,12 +162,12 @@
                                     <li>
                                         <h6 class="dropdown-header">Hello, <?php echo $this->session->userdata('nama'); ?></h6>
                                     </li>
-                                    <!-- <li><a class="dropdown-item" href="<?php echo base_url() . 'profile/myprofile' ?>"><i class="icon-mid bi bi-person me-2"></i> My
-                                            Profile</a></li> -->
+                                    <li><a class="dropdown-item" href="<?php echo base_url().'profile/myprofile' ?>"><i class="icon-mid bi bi-person me-2"></i> My
+                                            Profile</a></li>
                                     <!-- <li>
                                         <hr class="dropdown-divider">
                                     </li> -->
-                                    <li><a class="dropdown-item" href="<?php echo base_url() . 'admin/logout' ?>"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url().'admin/logout'?>"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </div>
