@@ -88,13 +88,18 @@
                                             <a href="<?php echo base_url() . 'santri/tabel_santri' ?>" class="btn btn-light-secondary me-1 mb-1">Batal</a>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                         </form>
                     <?php } ?>
+=======
+                                </form>
+                            <?php } ?>
+                        </div>
+>>>>>>> 7da742ee2fcc46c3f0bfc5e41ff066b38f89c4c8
                     </div>
                 </div>
             </div>
         </div>
-</div>
-</section>
-<!-- // Basic Vertical form layout section end -->
+    </section>
+    <!-- // Basic Vertical form layout section end -->
 </div>
