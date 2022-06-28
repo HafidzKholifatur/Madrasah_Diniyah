@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jun 2022 pada 09.27
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.28
+-- Waktu pembuatan: 28 Jun 2022 pada 15.47
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,8 +58,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`kategori_id`, `nama_kategori`, `tgl_dibuat`) VALUES
-(3, 'dsadas', '2022-06-23'),
-(7, 'UAS', '2022-06-25');
+(11, 'Praktek', '2022-06-28');
 
 -- --------------------------------------------------------
 
@@ -77,9 +76,15 @@ CREATE TABLE `mapel` (
 --
 
 INSERT INTO `mapel` (`mapel_id`, `mapel_nama`) VALUES
-(2, 'Matematika'),
-(3, 'Aqidah Ahlak'),
-(4, 'Al Qur\'an');
+(5, 'Al-Qur\'an'),
+(6, 'Al-Hadits'),
+(7, 'Terjemah'),
+(8, 'Aqidah Ahlak'),
+(9, 'Fiqih'),
+(10, 'Sejarah Kebudayaan Islam'),
+(11, 'Bahasa Arab'),
+(12, 'Praktek Ibadah'),
+(13, 'Do\'a Harian');
 
 -- --------------------------------------------------------
 
@@ -101,8 +106,10 @@ CREATE TABLE `pengajar` (
 --
 
 INSERT INTO `pengajar` (`pengajar_id`, `pengajar_nama`, `pengajar_jk`, `pengajar_lahir`, `pengajar_telp`, `pengajar_alamat`) VALUES
-(5, 'Akmal', 'Laki-Laki', '2022-06-21', '087895', 'jl baru'),
-(6, 'Muhammad Akmal 1', 'Perempuan', '2002-05-23', '0489126', 'Jalanan');
+(7, 'Sanih Halimah', 'Perempuan', '1969-06-27', '081748293013', 'Jl Masjid Jami Alfurqon, Kec. Jatiasih, Bekasi'),
+(8, 'Masnah, S.Ag', 'Perempuan', '1980-02-26', '081564728192', 'Jl Masjid Jami Alfurqon, Kec. Jatiasih, Bekasi'),
+(9, 'Kimah', 'Perempuan', '1977-11-19', '081573829012', 'Jl Masjid Jami Alfurqon, Kec. Jatiasih, Bekasi'),
+(10, 'Nahari Naharudin, S.Ag', 'Laki-Laki', '1968-08-23', '08174620127', 'Jl Masjid Jami Alfurqon, Kec. Jatiasih, Bekasi');
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,11 @@ CREATE TABLE `penilaian` (
 --
 
 INSERT INTO `penilaian` (`penilaian_id`, `id_kategori`, `id_santri`, `id_mapel`, `nilai`) VALUES
-(5, 3, 6, 2, 1001);
+(43, 11, 9, 12, 85),
+(45, 11, 11, 12, 85),
+(46, 11, 10, 12, 85),
+(47, 11, 12, 5, 65),
+(48, 11, 13, 12, 30);
 
 -- --------------------------------------------------------
 
@@ -144,8 +155,11 @@ CREATE TABLE `santri` (
 --
 
 INSERT INTO `santri` (`santri_id`, `santri_nama`, `santri_jk`, `santri_lahir`, `santri_alamat`) VALUES
-(6, 'Hafidz', 'Laki-Laki', '2022-06-20', 'kebon'),
-(8, 'Hani', 'Perempuan', '2022-06-24', 'Jalan');
+(9, 'Aulia', 'Perempuan', '2009-06-12', 'Komplek Asabri'),
+(10, 'Naila', 'Perempuan', '2008-05-09', 'Jatiasih'),
+(11, 'Fahmi', 'Laki-Laki', '2008-11-16', 'Komplek Danamon'),
+(12, 'Dzaki', 'Laki-Laki', '2009-01-03', 'Jl. Sirojul Munir'),
+(13, 'Muhammad Akmal', 'Laki-Laki', '2002-11-28', 'Jatiasih');
 
 --
 -- Indexes for dumped tables
@@ -204,31 +218,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `pengajar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pengajar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `penilaian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `penilaian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `santri`
 --
 ALTER TABLE `santri`
-  MODIFY `santri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `santri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
