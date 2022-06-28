@@ -1,5 +1,5 @@
             <div class="page-heading">
-                <h3>Profile Statistics</h3>
+                <h3>Data Statistics</h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -61,7 +61,7 @@
                         <section class="section">
                             <div class="card">
                                 <div class="card-header">
-                                    Tabel Data Anak
+                                    Tabel Data Santri/Santriwati
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-striped" id="table1">

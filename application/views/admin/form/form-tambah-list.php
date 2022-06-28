@@ -43,7 +43,8 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Tambah</button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button>
+                                            <a href="<?php echo base_url().'nilai/card_nilai' ?>" class="btn btn-light-secondary me-1 mb-1">Batal</a>
+                                            <!-- <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button> -->
                                         </div>
                                     </div>
                                 </div>

@@ -191,6 +191,36 @@ class Nilai extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
+    function tambah_nilai_card($id, $sid){
+        $data['title'] = "Tambah Nilai | Madrasah Diniyah Raport";
+        $data['santri'] = $this->m_madrasah->get_data('santri')->result();
+        $data['mapel'] = $this->m_madrasah->get_data('mapel')->result();
+        
+        $kategori_id = array(
+            'kategori_id' => $id
+        );
+
+        $santri_id = array(
+            'santri_id' => $sid
+        );
+
+        foreach($kategori_id as $kate){
+            $data['kate'] = $kate;
+        }
+
+        foreach($santri_id as $said){
+            $data['said'] = $said;
+        }
+
+        foreach ($kategori_id as $kt_id) {
+            $data['santri'] = $this->db->query("SELECT * FROM santri WHERE santri_id = '$said';")->result();
+        }
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/form/form-tambah-nilai-card', $data);
+        $this->load->view('admin/footer');
+    }
+
     // Fungsi Untuk Aksi Tambah Data Nilai
     function aksi_tambah_nilai(){ 
         $kategori_id = $this->input->post('kategori_id');
@@ -212,6 +242,34 @@ class Nilai extends CI_Controller{
             
             $this->m_madrasah->insert_data($data, 'penilaian');
             redirect(base_url().'nilai/tabel_nilai/'.$kategori_id);
+        }else{
+            $this->load->view('admin/header');
+            $this->load->view('admin/form/form-tambah-nilai/'.$kategori_id);
+            $this->load->view('admin/footer');
+        }
+        
+    }
+
+    function aksi_tambah_nilai_card(){ 
+        $kategori_id = $this->input->post('kategori_id');
+        $santri = $this->input->post('santri_id');
+        $mapel_id = $this->input->post('mapel_id');
+        $nilai = $this->input->post('nilai');
+        $this->form_validation->set_rules('nilai', 'Nilai', 'required');
+        // $this->form_validation->set_rules('kategori_id', 'Kategori Id', 'trim|required|is_unique[penilaian.id_kategori]');
+        // $this->form_validation->set_rules('santri', 'Santri', 'trim|required|is_unique[penilaian.id_santri]');
+        // $this->form_validation->set_rules('mapel', 'Mapel', 'trim|required|is_unique[penilaian.id_mapel]');
+
+        if($this->form_validation->run() != false){
+            $data = array(
+                'id_kategori' => $kategori_id,
+                'id_santri' => $santri,
+                'id_mapel' => $mapel_id,
+                'nilai' => $nilai
+            );
+            
+            $this->m_madrasah->insert_data($data, 'penilaian');
+            redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri);
         }else{
             $this->load->view('admin/header');
             $this->load->view('admin/form/form-tambah-nilai/'.$kategori_id);
@@ -319,6 +377,7 @@ class Nilai extends CI_Controller{
         $id = $this->input->post('id');
         $kategori_id = $this->input->post('kategori_id');
         $santri_id = $this->input->post('santri_id');
+        $san = $this->input->post('san');
         $nilai = $this->input->post('nilai');
         $this->form_validation->set_rules('nilai', 'Nilai', 'required');
 
@@ -329,24 +388,9 @@ class Nilai extends CI_Controller{
             $data = array(
                 'nilai' => $nilai
             );
-
-            // $kat = array(
-            //     'kategori_id' => $kategori_id
-            // );
-            // $san = array(
-            //     'santri_id' => $santri_id
-            // );
-
-            // foreach($kat as $kate){
-            //     $data['kate'] = $kate;
-            // }
-
-            // foreach($san as $sant){
-            //     $data['sant'] = $sant;
-            // }
             
             $this->m_madrasah->update_data($where, $data, 'penilaian');
-            redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri_id);
+            redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$san);
         }else{
             $where = array(
                 'penilaian_id' => $id
@@ -359,79 +403,11 @@ class Nilai extends CI_Controller{
         }
         
     }
-    
-
-    // function aksi_tambah_nilai(){
-    //     $santri = $this->input->post('santri_id');
-    //     $mapel_id = $this->input->post('mapel_id');
-    //     $nilai = $this->input->post('nilai');
-
-        
-    //     var_dump($nilai);
-
-    //     var_dump($mapel_id);
-    //     echo "<br>";
-    //     var_dump($nilai);
-    //     echo "<br>";
-
-    //     foreach($mapel_id as $map){
-    //         $map;
-    //     }
-    //     foreach($nilai as $nil){
-    //         $nil;
-    //     }
-
-        
-    //     ========================================================
-
-    //     CARI CARA GIMANA $DATA MASUKIN SEMUA DATA, BUKAN CUMA 1
-
-    //     var_dump($nilai);
-    //     $data = array(
-    //         'santri_id' => $santri,
-    //         'mapel_id' => $mapel_id,
-    //         'nilai' => $nilai
-    //     );
-
-    //     foreach($data as $dat){
-    //         var_dump($dat);
-    //         $this->m_madrasah->insert_data($dat, 'penilaian');
-    //     }
-
-    //     ========================================================
-
-    //     $this->m_madrasah->insert_data($dat, 'penilaian');
-    //     redirect(base_url().'nilai/tabel_nilai');
-
-        
-    //     if(){
-    //         $data = array(
-    //             'santri_id' => $santri,
-    //             'mapel_id' => $mapel_id,
-    //             'nilai' => $nilai
-    //         );
-    //         $this->m_madrasah->insert_data($data, 'nilai');
-    //         redirect(base_url().'nilai/tabel_nilai');
-    //     }else{
-
-    //         redirect(base_url().'nilai/tambah_nilai');
-    //         $this->load->view('admin/header');
-    //         $this->load->view('admin/form/form-tambah-nilai');
-    //         $this->load->view('admin/footer');
-    //     }
-    // }
 
     function nilai_hapus($kategori_id, $id){
         $where = array(
             'penilaian_id' => $id
         );
-        // $kategori_id = array(
-        //     'kategori_id' => $kategori_id
-        // );
-        
-        // var_dump($where);
-        // echo "<br>";
-        // var_dump($kategori_id);
 
         $this->m_madrasah->delete_data($where, 'penilaian');
         redirect(base_url().'nilai/tabel_nilai/'.$kategori_id);
@@ -446,13 +422,6 @@ class Nilai extends CI_Controller{
         $where = array(
             'penilaian_id' => $id
         );
-        // $kategori_id = array(
-        //     'kategori_id' => $kategori_id
-        // );
-        
-        // var_dump($where);
-        // echo "<br>";
-        // var_dump($kategori_id);
 
         $this->m_madrasah->delete_data($where, 'penilaian');
         redirect(base_url().'nilai/table_per_card/'.$kategori_id.'/'.$santri_id);
@@ -464,10 +433,34 @@ class Nilai extends CI_Controller{
         $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
     }
 
-    function cetak_data_nilai_card()
+    function cetak_data_nilai_card($id, $sid)
     {
-        $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) ;")->result();
-        $this->load->view('admin/cetak_data/cetak-data-nilai', $data);
+        $kategori_id = array(
+            'kategori_id' => $id
+        );
+
+        $santri_id = array(
+            'santri_id' => $sid
+        );
+
+        foreach($kategori_id as $kate){
+            $data['kate'] = $kate;
+        }
+
+        foreach($santri_id as $said){
+            $data['said'] = $said;
+        }
+
+        // $data['rata'] = $this->db->query("SELECT AVG(nilai) FROM penilaian WHERE id_kategori = '$kate'; ")->result();
+        $data['rata'] = $this->db->query("SELECT AVG(nilai) AS rata_nilai FROM penilaian WHERE id_kategori = '$kate' AND id_santri = '$said'; ")->result();
+
+        $data['total'] = $this->db->query("SELECT SUM(nilai) AS total_nilai FROM penilaian WHERE id_kategori = '$kate' AND id_santri = '$said'; ")->result();
+        // $data['total_n'] = $this->db->query("SELECT SUM(nilai) AS ttl_nilai FROM penilaian WHERE id_kategori = '$kate'; ")->result();
+
+        // $data['jumlah'] =  $this->db->query("SELECT COUNT(id_santri) FROM penilaian WHERE id_kategori = '$kate'; ")->result();
+        
+        $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) WHERE id_kategori = '$kate' AND id_santri = '$said'; ")->result();
+        $this->load->view('admin/cetak_data/cetak-data-nilai-card', $data);
     }
 
     function logout(){

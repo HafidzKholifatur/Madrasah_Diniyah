@@ -26,31 +26,32 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical" method="POST" action="<?php echo base_url().'nilai/aksi_tambah_nilai_card' ?>">
+                            <form class="form form-vertical" method="POST" action="<?php echo base_url() . 'nilai/aksi_tambah_nilai_card' ?>">
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-12 mb-3">
-                                            <div class="form-group has-icon-left">
-                                                <input type="hidden" name="kategori_id" value="<?php echo $kate ?>">
-                                                <?php echo form_error('kategori_id'); ?>
-                                                <label for="first-name-icon">Pilih Santri/Santriwati</label>
-                                                <div class="position-relative">
-                                                    <select class="form-select form-control" id="basicSelect" name="santri_id">
-                                                        <?php foreach($santri as $s) { ?>
-                                                        <option value="<?php echo $s->santri_id ?>"><?php echo $s->santri_nama ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                                    <?php echo form_error('santri'); ?>
-                                                </div> 
+                                        <?php foreach ($santri as $s) { ?>
+                                            <div class="col-12 mb-3">
+                                                <div class="form-group has-icon-left">
+                                                    <input type="hidden" name="kategori_id" value="<?php echo $kate ?>">
+                                                    <input type="hidden" name="santri_id" value="<?php echo $said ?>">
+                                                    <?php echo form_error('kategori_id'); ?>
+                                                    <label for="first-name-icon">Pilih Santri/Santriwati</label>
+                                                    <div class="position-relative">
+                                                        <select class="form-select form-control" id="basicSelect" name="santri_id" disabled>
+                                                            <option value="<?php echo $s->santri_id ?>"><?php echo $s->santri_nama ?></option>
+                                                        </select>
+                                                        <?php echo form_error('santri'); ?>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php } ?>
                                         <div class="col-12 mb-3">
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Pilih Mata Pelajaran</label>
                                                 <div class="position-relative">
                                                     <select class="form-select form-control" id="basicSelect" name="mapel_id">
-                                                        <?php foreach($mapel as $m) { ?>
-                                                        <option value="<?php echo $m->mapel_id ?>"><?php echo $m->mapel_nama ?></option>
+                                                        <?php foreach ($mapel as $m) { ?>
+                                                            <option value="<?php echo $m->mapel_id ?>"><?php echo $m->mapel_nama ?></option>
                                                         <?php } ?>
                                                     </select>
                                                     <?php echo form_error('mapel'); ?>
@@ -59,7 +60,6 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
-                                                <!-- <input type="hidden" name="mapel_id[]" value="<?php echo $m->mapel_id ?>"> -->
                                                 <label for="first-name-icon">Nilai</label>
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon" name="nilai" required>
@@ -69,8 +69,7 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-success me-1 mb-1"><i class="bi bi-save"></i> Simpan</button>
-                                            <!-- <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button> -->
-                                            <a href="<?php echo base_url().'nilai/tabel_nilai/'.$kate ?>" class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left"></i> Kembali</a>
+                                            <a href="<?php echo base_url() . 'nilai/table_per_card/' . $kate . '/' . $said ?>" class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left"></i> Kembali</a>
                                         </div>
                                     </div>
                                 </div>

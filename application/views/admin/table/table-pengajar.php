@@ -20,8 +20,8 @@
                         <div class="card-header">
                             Tabel Pengajar
                             <div class="float-lg-end">
-                                <a href="<?php echo base_url().'pengajar/tambah_pengajar' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Pengajar</a>
-                                <a href="<?php echo base_url().'pengajar/cetak_data_pengajar' ?>" target="_blank" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
+                                <a href="<?php echo base_url() . 'pengajar/tambah_pengajar' ?>" class="btn btn-success btn-sm float-lg-end">Tambah Pengajar</a>
+                                <a href="<?php echo base_url() . 'pengajar/cetak_data_pengajar' ?>" target="_blank" class="btn btn-info btn-sm float-lg-end me-2">Cetak Data</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -31,35 +31,35 @@
                                         <th>No</th>
                                         <th>Nama Pengajar</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Tanggal Lahir</th> 
+                                        <th>Tanggal Lahir</th>
                                         <th>No Telpon</th>
                                         <th>Alamat</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
-                                <?php 
-                                    $no = 1;
-                                    foreach($pengajar as $p) { 
-                                ?> 
                                 <tbody>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $p->pengajar_nama ?></td>
-                                        <td><?= $p->pengajar_jk ?></td>
-                                        <td><?php echo date('d/m/Y', strtotime($p->pengajar_lahir)); ?></td>
-                                        <td><?= $p->pengajar_telp ?></td>
-                                        <td><?= $p->pengajar_alamat ?></td>
-                                        <td class="text-center">
-                                            <a href="<?php echo base_url().'pengajar/pengajar_edit/'.$p->pengajar_id; ?>" class="btn btn-warning btn-sm">
-                                                <span class="glyphicon glyphicon-plus"></span> Edit
-                                            </a>
-                                            <a href="<?php echo base_url().'pengajar/pengajar_hapus/'.$p->pengajar_id; ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
-                                                <span class="glyphicon glyphicon-trash"></span> Hapus
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($pengajar as $p) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $p->pengajar_nama ?></td>
+                                            <td><?= $p->pengajar_jk ?></td>
+                                            <td><?php echo date('d/m/Y', strtotime($p->pengajar_lahir)); ?></td>
+                                            <td><?= $p->pengajar_telp ?></td>
+                                            <td><?= $p->pengajar_alamat ?></td>
+                                            <td class="text-center">
+                                                <a href="<?php echo base_url() . 'pengajar/pengajar_edit/' . $p->pengajar_id; ?>" class="btn btn-warning btn-sm">
+                                                    <span class="glyphicon glyphicon-plus"></span> Edit
+                                                </a>
+                                                <a href="<?php echo base_url() . 'pengajar/pengajar_hapus/' . $p->pengajar_id; ?>" onclick="return confirm('Apakah anda ingin menghapus?')" class="btn btn-danger btn-sm">
+                                                    <span class="glyphicon glyphicon-trash"></span> Hapus
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                             </table>
                         </div>
                     </div>

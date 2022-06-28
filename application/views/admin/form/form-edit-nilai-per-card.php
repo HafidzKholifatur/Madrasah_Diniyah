@@ -22,7 +22,7 @@
             <div class="col-md-6 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Tambah Edit Nilai Pengajian</h4>
+                        <h4 class="card-title">Edit Nilai Pengajian</h4>
                     </div>
                     <div class="card-content"> 
                         <div class="card-body">
@@ -33,12 +33,12 @@
                                         <div class="col-12 mb-3">
                                             <div class="form-group has-icon-left">
                                                 <input type="hidden" name="kategori_id" value="<?php echo $kate ?>">
+                                                <input type="hidden" name="san" value="<?php echo $p->id_santri ?>">
                                                 <input type="hidden" name="id" value="<?php echo $p->penilaian_id ?>">
-                                                <!-- <?php echo $p->penilaian_id ?> -->
                                                 <label for="first-name-icon">Pilih Santri/Santriwati</label>
                                                 <div class="position-relative">
                                                     <select class="form-select form-control" id="basicSelect" name="santri_id" disabled>
-                                                        <option value="<?php echo $p->id_santri ?>"><?php echo $p->santri_nama ?></option>
+                                                        <option selected value="<?php echo $p->id_santri ?>"><?php echo $p->santri_nama ?></option>
                                                     </select>
                                                 </div> 
                                             </div>

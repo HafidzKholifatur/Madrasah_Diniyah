@@ -16,7 +16,6 @@
             </div>
         </div>
         <div class="col-12 col-md-12 text-end">
-            <!-- <a href="<?php echo base_url().'nilai/tambah_card_per_kategori/'.$kate ?>" class="btn btn-success mb-3 justify-content-end"><i class="bi bi-plus"></i> Tambah Card Santri</a> -->
             <a href="<?php echo base_url().'nilai/tabel_nilai/'.$kate ?>" class="btn btn-info mb-3 justify-content-end"><i class="bi bi-table"></i> Table Mode</a>
         </div>
     </div>
@@ -28,16 +27,12 @@
                         $no = 1; 
                         foreach($penilaian as $p) {
                     ?>
-                    <div class="col-6 col-lg-3 col-md-6">
+                    <div class="col-6 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <h3 class=""><?= $p->santri_nama ?></h3>
                                     <hr>
-                                    <!-- <h4 class="card-title"><?= $p->mapel_nama ?></h4>
-                                    <p class="card-text">
-                                        Dibuat Pada Tanggal <b><?= date('d/m/Y', strtotime($k->tgl_dibuat)); ?></b>
-                                    </p> -->
                                     <div class="form-actions d-flex justify-content-start">
                                         <a href="<?php echo base_url().'nilai/table_per_card/'.$p->id_kategori.'/'.$p->id_santri ?>" class="btn btn-primary me-1"><i class="bi bi-eye"></i> Lihat Detail</a>
                                         <a href="<?php echo base_url().'nilai/cetak_data_nilai_card/'.$p->id_kategori.'/'.$p->id_santri ?>" target="_blank" class="btn btn-info me-1"><i class="bi bi-printer"></i> Cetak Data</a>
