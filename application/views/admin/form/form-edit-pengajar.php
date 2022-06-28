@@ -86,7 +86,7 @@
                                                     <div class="position-relative">
                                                         <input type="text" name="alamat_pengajar" class="form-control" id="first-name-icon" value="<?php echo $p->pengajar_alamat; ?>">
                                                         <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
+                                                            <i class="bi bi-pin-map-fill"></i>
                                                         </div>
                                                     </div>
                                                     <?php echo form_error('alamat_pengajar'); ?>

@@ -26,7 +26,7 @@
                         </div>
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
-                                <thead>
+                                <thead> 
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Pengajar</th>
@@ -37,11 +37,11 @@
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
-                                <?php 
-                                    $no = 1;
-                                    foreach($pengajar as $p) { 
-                                ?> 
                                 <tbody>
+                                    <?php 
+                                        $no = 1;
+                                        foreach($pengajar as $p) { 
+                                    ?> 
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $p->pengajar_nama ?></td>
@@ -58,8 +58,8 @@
                                             </a>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                             </table>
                         </div>
                     </div>
