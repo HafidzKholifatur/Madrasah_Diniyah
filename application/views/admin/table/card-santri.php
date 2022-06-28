@@ -2,9 +2,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Card Mode Santri</h3>
-                <!-- <p class="text-subtitle text-muted">-------</p> -->
-                <!-- <a href="<?php // echo base_url().'nilai/tambah_list' ?>" class="btn btn-primary mb-3 justify-content-end"><i class="bi bi-plus"></i> Tambah Card Santri</a> -->
+                <h3>Card Mode Santri</h3>                
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">

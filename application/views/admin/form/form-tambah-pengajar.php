@@ -47,7 +47,6 @@
                                                             <label for="email-id-icon">Jenis Kelamin</label>
                                                             <div class="position-relative">
                                                                 <select name="jk" class="form-select form-control" id="basicSelect">
-                                                                    <!-- <option <?php echo ($k->jurusan == 'TI') ? "selected" : "" ?>>TI</option> -->
                                                                     <option value="Laki-Laki">Laki-Laki</option>
                                                                     <option value="Perempuan">Perempuan</option>
                                                                 </select>

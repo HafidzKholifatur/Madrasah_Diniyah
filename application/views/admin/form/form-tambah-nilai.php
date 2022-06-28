@@ -59,7 +59,6 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
-                                                <!-- <input type="hidden" name="mapel_id[]" value="<?php echo $m->mapel_id ?>"> -->
                                                 <label for="first-name-icon">Nilai</label>
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control" placeholder="Masukan Nilai" id="first-name-icon" name="nilai" required>
@@ -69,7 +68,6 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-success me-1 mb-1"><i class="bi bi-save"></i> Simpan</button>
-                                            <!-- <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button> -->
                                             <a href="<?php echo base_url().'nilai/tabel_nilai/'.$kate ?>" class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left"></i> Kembali</a>
                                         </div>
                                     </div>

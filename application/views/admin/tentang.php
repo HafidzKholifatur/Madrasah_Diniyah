@@ -17,9 +17,6 @@
                 </div>
                 <section class="section">
                     <div class="card">
-                        <!-- <div class="card-header">
-                            Simple Datatable
-                        </div> -->
                         <div class="card-body">
                            <h4 class="card-header">Madrasah Diniyah</h4>
                             <div class="card-body text-wrap"><b>Madrasah Diniyah</b> merupakan sebuah tempat pengajian agama yang beralamat di <b>Jl. Masjid Jami Alfurqon, Kec. Jatiasih, Kota Bks, Jawa Barat 17426.</b> diketuai oleh <b>Bapak Ustadz Nahari Naharudin S.Ag.</b> Sebagai tempat pengajian agama yang terintegrasi dengan Kantor Kementrian Agama, Madrasah Diniyah diwajibkan melakukan penilaian kepada pada Santri/Santriwati. Tujuannya untuk membuat sistem pembelajaran agama yang lebih disiplin dan teratur serta untuk mengembangkan pengetahuan agama Santri/Santriwati dengan Mata Pelajaran tertentu yang nantinya akan dilakukan penilaian. Pembelajaran yang dilakukan akan dibukukan agar Orang Tua dari Santri/Santriwati dapat mengetahui perkembangan anak mereka selama belajar di Tempat Pengajian Agama <b>Madrasah Diniyah.</b></div>

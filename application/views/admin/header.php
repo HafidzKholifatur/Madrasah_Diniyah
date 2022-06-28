@@ -104,12 +104,6 @@
                             <li class="submenu-item ">
                                     <a href="<?php echo base_url() . 'nilai/card_nilai' ?>">List Nilai</a>
                                 </li>
-                                <!-- <li class="submenu-item ">
-                                    <a href="<?php echo base_url() . 'nilai/tabel_nilai' ?>">Tabel Nilai</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="<?php echo base_url() . 'nilai/tambah_nilai' ?>">Tambah Data Nilai</a>
-                                </li> -->
                             </ul>
                         </li>
 
@@ -155,9 +149,6 @@
                                     <li>
                                         <h6 class="dropdown-header">Hello, <?php echo $this->session->userdata('nama'); ?></h6>
                                     </li>
-                                    <!-- <li>
-                                        <hr class="dropdown-divider">
-                                    </li> -->
                                     <li><a class="dropdown-item" href="<?php echo base_url().'admin/logout'?>"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
                                 </ul>
                             </div>

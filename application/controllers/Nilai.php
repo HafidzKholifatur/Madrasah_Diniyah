@@ -85,19 +85,6 @@ class Nilai extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    // function hapus_list($id){
-    //     $where = array(
-    //         'kategori_id' => $id
-    //     );
-
-        
-    //     if(confirm("") == true){
-
-    //     }
-    //     $this->m_madrasah->delete_data($where, 'kategori');
-    //     redirect(base_url().'nilai/card_nilai'); 
-    // }
-
     // Fungsi Untuk Menampilkan Form Tambah List Kategori Baru
     function tambah_list(){
         $data['title'] = "Tambah List Nilai | Madrasah Diniyah Raport";
@@ -129,7 +116,6 @@ class Nilai extends CI_Controller{
     // Fungsi Untuk Menampilkan Nilai Dalam Bentuk Card List Per-Kategori
     function list_santri($id){
         $data['title'] = "List Card Nilai | Madrasah Diniyah Raport";
-        // $data['kategori'] = $this->m_madrasah->get_data('kategori')->result();
 
         $kategori_id = array(
             'kategori_id' => $id
@@ -142,9 +128,6 @@ class Nilai extends CI_Controller{
             $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) WHERE id_kategori = '$kt_id' GROUP BY santri_nama;")->result();
         }
 
-        // foreach ($kategori_id as $kt_id) {
-        //     $data['kategori'] = $this->db->query("SELECT * kategori WHERE kategori_id = '$kt_id'")->result;
-        // }
         $this->load->view('admin/header', $data);
         $this->load->view('admin/table/card-santri', $data);
         $this->load->view('admin/footer');
@@ -228,9 +211,6 @@ class Nilai extends CI_Controller{
         $mapel_id = $this->input->post('mapel_id');
         $nilai = $this->input->post('nilai');
         $this->form_validation->set_rules('nilai', 'Nilai', 'required');
-        // $this->form_validation->set_rules('kategori_id', 'Kategori Id', 'trim|required|is_unique[penilaian.id_kategori]');
-        // $this->form_validation->set_rules('santri', 'Santri', 'trim|required|is_unique[penilaian.id_santri]');
-        // $this->form_validation->set_rules('mapel', 'Mapel', 'trim|required|is_unique[penilaian.id_mapel]');
 
         if($this->form_validation->run() != false){
             $data = array(
@@ -256,9 +236,6 @@ class Nilai extends CI_Controller{
         $mapel_id = $this->input->post('mapel_id');
         $nilai = $this->input->post('nilai');
         $this->form_validation->set_rules('nilai', 'Nilai', 'required');
-        // $this->form_validation->set_rules('kategori_id', 'Kategori Id', 'trim|required|is_unique[penilaian.id_kategori]');
-        // $this->form_validation->set_rules('santri', 'Santri', 'trim|required|is_unique[penilaian.id_santri]');
-        // $this->form_validation->set_rules('mapel', 'Mapel', 'trim|required|is_unique[penilaian.id_mapel]');
 
         if($this->form_validation->run() != false){
             $data = array(
@@ -312,8 +289,6 @@ class Nilai extends CI_Controller{
     function aksi_edit_nilai(){ 
         $id = $this->input->post('id');
         $kategori_id = $this->input->post('kategori_id');
-        // $santri = $this->input->post('santri_id');
-        // $mapel_id = $this->input->post('mapel_id');
         $nilai = $this->input->post('nilai');
         $this->form_validation->set_rules('nilai', 'Nilai', 'required');
 
@@ -322,9 +297,6 @@ class Nilai extends CI_Controller{
                 'penilaian_id' => $id
             );
             $data = array(
-                // 'id_kategori' => $kategori_id,
-                // 'id_santri' => $santri,
-                // 'id_mapel' => $mapel_id,
                 'nilai' => $nilai
             );
             
@@ -359,14 +331,12 @@ class Nilai extends CI_Controller{
         foreach($kategori_id as $kate){
             $data['kate'] = $kate;
         }
-        // var_dump($kate);
 
         foreach ($kategori_id as $kt_id) {
             $data['penilaian'] = $this->db->query("SELECT penilaian.*, santri.santri_nama, mapel.mapel_nama FROM ((penilaian INNER JOIN santri ON penilaian.id_santri = santri.santri_id) INNER JOIN mapel ON penilaian.id_mapel = mapel.mapel_id) WHERE penilaian_id = '$wh';")->result();
         }
 
         $data['title'] = "Edit Penilaian | Madrasah Diniyah Raport";
-        // $data['penilaian'] = $this->m_madrasah->edit_data($where,'penilaian')->result();
         $this->load->view('admin/header', $data);
         $this->load->view('admin/form/form-edit-nilai-per-card', $data);
         $this->load->view('admin/footer');
